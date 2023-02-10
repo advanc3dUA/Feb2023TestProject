@@ -8,10 +8,13 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    var traineeVCSmallDetentHeight: CGFloat?
+    var traineeVCLargeDetentHeight: CGFloat?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        calcTraineeVCDetentSizes()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -19,17 +22,18 @@ class ViewController: UIViewController {
         showTraineeVCInACustomizedSheet()
     }
 
-    func showTraineeVCInACustomizedSheet() {
+    private func showTraineeVCInACustomizedSheet() {
         let traineeVC = TraineeViewController()
         if let sheet = traineeVC.sheetPresentationController {
+            
             // Adds two custom Detents - small and large
             let smallId = UISheetPresentationController.Detent.Identifier("small")
-            let smallDetent = UISheetPresentationController.Detent.custom(identifier: smallId) { context in
-                return 240
+            let smallDetent = UISheetPresentationController.Detent.custom(identifier: smallId) {[unowned self] context in
+                return traineeVCSmallDetentHeight
             }
             let bigId = UISheetPresentationController.Detent.Identifier("large")
-            let bigDetent = UISheetPresentationController.Detent.custom(identifier: bigId) { context in
-                return 700
+            let bigDetent = UISheetPresentationController.Detent.custom(identifier: bigId) {[unowned self] context in
+                return traineeVCLargeDetentHeight
             }
             sheet.detents = [smallDetent, .medium(), bigDetent]
             
@@ -43,12 +47,12 @@ class ViewController: UIViewController {
         }
         // Disables hiding TraineeVC
         traineeVC.isModalInPresentation = true
-//        traineeVC.modalPresentationCapturesStatusBarAppearance = false
-//        traineeVC.modalPresentationStyle = .overFullScreen
         present(traineeVC, animated: true, completion: nil)
     }
     
-
-
+    private func calcTraineeVCDetentSizes() {
+        traineeVCSmallDetentHeight = self.view.bounds.height * 0.23
+        traineeVCLargeDetentHeight = self.view.bounds.height * 0.88
+    }
 }
 
