@@ -17,7 +17,6 @@ class ButtonsArrayCell: UITableViewCell {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        print("test")
         setupCollectionView()
         
     }
@@ -38,10 +37,10 @@ class ButtonsArrayCell: UITableViewCell {
         contentView.addSubview(collectionView)
         
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            collectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
+//            collectionView.topAnchor.constraint(equalTo: contentView.topAnchor),
+//            collectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+//            collectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+//            collectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
         ])
     }
 }
@@ -53,7 +52,6 @@ extension ButtonsArrayCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ButtonCell", for: indexPath) as! ButtonCell
-
         return cell
     }
 }

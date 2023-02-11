@@ -7,51 +7,32 @@
 
 import UIKit
 
-@IBDesignable
 class ActionButton: UIButton {
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
     }
-    
+
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setup()
     }
-    
-    private func setup() {
-        setTitle("normal", for: .normal)
-        setTitle("selected", for: .selected)
-        
-        setBackgroundImage(image(with: .systemGray6), for: .normal)
-        setBackgroundImage(image(with: .black), for: .selected)
-        setTitleColor(.black, for: .normal)
-        setTitleColor(.white, for: .selected)
-        titleLabel?.font = UIFont.preferredFont(forTextStyle: .body)
-        layer.cornerRadius = 5
-        layer.masksToBounds = true
-        
-        if let currentTitle = currentTitle {
-            widthAnchor.constraint(greaterThanOrEqualToConstant: getButtonWidth(for: currentTitle)).isActive = true
-        }
+
+    func setup() {
+        self.frame = CGRect(x: 200, y: 200, width: 100, height: 50)
+        self.layer.cornerRadius = 5
+        self.setTitleColor(.black, for: .normal)
+        self.backgroundColor = .systemGray6
+
+        self.setTitleColor(.white, for: .selected)
+        self.setTitleColor(.red, for: .highlighted)
     }
 
-    override func prepareForInterfaceBuilder() {
-        setup()
-    }
-    
-    private func image(with color: UIColor) -> UIImage {
-        let size = CGSize(width: 1, height: 1)
-        let renderer = UIGraphicsImageRenderer(size: size)
-        return renderer.image { context in
-            context.cgContext.setFillColor(color.cgColor)
-            context.cgContext.fill(CGRect(origin: .zero, size: size))
-        }
-    }
-    
-    private func getButtonWidth(for currentTitle: String) -> CGFloat {
-        let letters = currentTitle.count
-        return CGFloat(7 * letters + 50)
+    func getButtonWidth(for currentTitle: String) -> CGFloat {
+        let size = CGSize(width: CGFloat.greatestFiniteMagnitude, height: self.frame.height)
+        let attributes = [NSAttributedString.Key.font: self.titleLabel?.font as Any]
+        let estimatedFrame = NSString(string: currentTitle).boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: attributes, context: nil)
+        return estimatedFrame.width
     }
 }
+

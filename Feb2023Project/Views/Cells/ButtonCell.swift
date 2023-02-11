@@ -9,7 +9,8 @@ import UIKit
 
 class ButtonCell: UICollectionViewCell {
     
-    let button = ActionButton()
+    @IBOutlet var button: ActionButton!
+//    let button = ActionButton()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -22,14 +23,16 @@ class ButtonCell: UICollectionViewCell {
     }
     
     private func setup() {
+        button = ActionButton()
+
         contentView.addSubview(button)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            button.topAnchor.constraint(equalTo: contentView.topAnchor),
-            button.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            button.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            button.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
-        ])
+//        button.translatesAutoresizingMaskIntoConstraints = false
+//        NSLayoutConstraint.activate([
+//            button.topAnchor.constraint(equalTo: contentView.topAnchor),
+//            button.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+//            button.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+//            button.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
+//        ])
     }
     
     override func prepareForReuse() {
