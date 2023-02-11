@@ -56,6 +56,7 @@ class TraineeViewController: UITableViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         tableView.register(UINib(nibName: K.Cell.header, bundle: nil), forCellReuseIdentifier: K.Cell.header)
         tableView.register(UINib(nibName: K.Cell.description, bundle: nil), forCellReuseIdentifier: K.Cell.description)
+        tableView.register(UINib(nibName: K.Cell.buttonsArray, bundle: nil), forCellReuseIdentifier: K.Cell.buttonsArray)
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -84,10 +85,14 @@ class TraineeViewController: UITableViewController {
         if indexPath.row % 2 == 0 {
             let headerCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.header, for: indexPath)
             return headerCell
+        } else if indexPath.row % 2 == 1 {
+            let buttonsArrayCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.buttonsArray, for: indexPath)
+            return buttonsArrayCell
         } else {
             let descriptionCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.description, for: indexPath)
             return descriptionCell
         }
+        
     }
 
     /*
