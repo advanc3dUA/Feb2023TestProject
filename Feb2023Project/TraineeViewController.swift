@@ -62,7 +62,7 @@ class TraineeViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
-    private func detentChanged(_ detent: UISheetPresentationController.Detent) {
+    private func detentChanged(_ detent: UISheetPresentationController.Detent.Identifier) {
         delegate?.detentChanged(detent: detent)
     }
 

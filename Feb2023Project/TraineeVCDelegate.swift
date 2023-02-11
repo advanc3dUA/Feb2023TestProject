@@ -8,5 +8,5 @@
 import UIKit
 
 protocol TraineeVCDelegate: AnyObject {
-    func detentChanged(detent: UISheetPresentationController.Detent)
+    func detentChanged(detent: UISheetPresentationController.Detent.Identifier)
 }

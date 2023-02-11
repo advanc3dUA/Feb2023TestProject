@@ -24,6 +24,7 @@ class ViewController: UIViewController {
         traineeVC = TraineeViewController(smallDetentSize: calcTraineeVCDetentSizeSmall(),
                                           largeDetentSize: calcTraineeVCDetentSizeLarge())
         traineeVC?.delegate = self
+        traineeVC?.presentationController?.delegate = self
         present(traineeVC!, animated: true, completion: nil)
     }
     
@@ -37,8 +38,16 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: TraineeVCDelegate {
-    func detentChanged(detent: UISheetPresentationController.Detent) {
+    func detentChanged(detent: UISheetPresentationController.Detent.Identifier) {
         print("Detent changed to: \(detent)")
+    }
+}
+
+extension ViewController: UISheetPresentationControllerDelegate {
+    func sheetPresentationControllerDidChangeSelectedDetentIdentifier(_ sheetPresentationController: UISheetPresentationController) {
+        if let currentDetent = sheetPresentationController.selectedDetentIdentifier {
+            detentChanged(detent: currentDetent)            
+        }
     }
 }
 
