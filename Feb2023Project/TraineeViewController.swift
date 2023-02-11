@@ -9,6 +9,45 @@ import UIKit
 
 class TraineeViewController: UITableViewController {
     
+    weak var delegate: TraineeVCDelegate?
+    var numberOfRows = 3 {
+        didSet {
+            print(numberOfRows)
+            tableView.reloadData()
+        }
+    }
+    
+    init(smallDetentSize: CGFloat, largeDetentSize: CGFloat) {
+        super.init(style: .plain)
+        
+        // Adds two custom Detents - small and large
+        let smallId = UISheetPresentationController.Detent.Identifier("small")
+        let smallDetent = UISheetPresentationController.Detent.custom(identifier: smallId) {context in
+            return smallDetentSize
+        }
+        let bigId = UISheetPresentationController.Detent.Identifier("large")
+        let bigDetent = UISheetPresentationController.Detent.custom(identifier: bigId) {context in
+            return largeDetentSize
+        }
+        sheetPresentationController?.detents = [smallDetent, .medium(), bigDetent]
+
+        //Sheet setup
+        sheetPresentationController?.largestUndimmedDetentIdentifier = .large
+        sheetPresentationController?.prefersScrollingExpandsWhenScrolledToEdge = true
+        sheetPresentationController?.prefersEdgeAttachedInCompactHeight = true
+        sheetPresentationController?.widthFollowsPreferredContentSizeWhenEdgeAttached = true
+        sheetPresentationController?.prefersGrabberVisible = true
+        sheetPresentationController?.preferredCornerRadius = 27
+
+        // Disables hiding TraineeVC
+        isModalInPresentation = true
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,17 +61,21 @@ class TraineeViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    private func detentChanged(_ detent: UISheetPresentationController.Detent) {
+        delegate?.detentChanged(detent: detent)
+    }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 3
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 3
+        return numberOfRows
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
