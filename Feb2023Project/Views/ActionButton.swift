@@ -21,6 +21,9 @@ class ActionButton: UIButton {
     }
     
     private func setup() {
+        setTitle("normal", for: .normal)
+        setTitle("selected", for: .selected)
+        
         setBackgroundImage(image(with: .systemGray6), for: .normal)
         setBackgroundImage(image(with: .black), for: .selected)
         setTitleColor(.black, for: .normal)

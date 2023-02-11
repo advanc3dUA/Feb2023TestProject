@@ -82,13 +82,14 @@ class TraineeViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row % 2 == 0 {
+        switch indexPath.row {
+        case 0:
             let headerCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.header, for: indexPath)
             return headerCell
-        } else if indexPath.row % 2 == 1 {
+        case 1:
             let buttonsArrayCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.buttonsArray, for: indexPath)
             return buttonsArrayCell
-        } else {
+        default:
             let descriptionCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.description, for: indexPath)
             return descriptionCell
         }
