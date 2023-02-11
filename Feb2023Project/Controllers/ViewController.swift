@@ -42,9 +42,9 @@ class ViewController: UIViewController {
 extension ViewController: TraineeVCDelegate {
     func detentChanged(detent: UISheetPresentationController.Detent.Identifier) {
         switch detent.rawValue {
-        case K.large: changeTraineeVCNumberOfRows(to: 8)
-        case K.medium: changeTraineeVCNumberOfRows(to: 5)
-        case K.small: changeTraineeVCNumberOfRows(to: 3)
+        case K.Detent.large: changeTraineeVCNumberOfRows(to: 8)
+        case K.Detent.medium: changeTraineeVCNumberOfRows(to: 5)
+        case K.Detent.small: changeTraineeVCNumberOfRows(to: 3)
         default: fatalError("Unregistered detent")
         }
     }

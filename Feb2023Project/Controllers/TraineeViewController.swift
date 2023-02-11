@@ -54,6 +54,8 @@ class TraineeViewController: UITableViewController {
         self.view.backgroundColor = .white
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        tableView.register(UINib(nibName: K.Cell.header, bundle: nil), forCellReuseIdentifier: K.Cell.header)
+        tableView.register(UINib(nibName: K.Cell.description, bundle: nil), forCellReuseIdentifier: K.Cell.description)
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -79,8 +81,13 @@ class TraineeViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        return cell
+        if indexPath.row % 2 == 0 {
+            let headerCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.header, for: indexPath)
+            return headerCell
+        } else {
+            let descriptionCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.description, for: indexPath)
+            return descriptionCell
+        }
     }
 
     /*
