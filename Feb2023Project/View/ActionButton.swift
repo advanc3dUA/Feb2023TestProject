@@ -8,7 +8,7 @@
 import UIKit
 
 @IBDesignable
-class ActionButtonOLD: UIButton {
+class ActionButton: UIButton {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -21,22 +21,13 @@ class ActionButtonOLD: UIButton {
     }
     
     private func setup() {
-        setTitle("normal", for: .normal)
-        setTitle("selected", for: .selected)
-        
         setBackgroundImage(image(with: .systemGray6), for: .normal)
         setBackgroundImage(image(with: .black), for: .selected)
-        
         setTitleColor(.black, for: .normal)
         setTitleColor(.white, for: .selected)
         titleLabel?.font = UIFont.preferredFont(forTextStyle: .body)
-        layer.cornerRadius = 5
+        layer.cornerRadius = 10
         layer.masksToBounds = true
-        
-        if let currentTitle = currentTitle {
-            widthAnchor.constraint(greaterThanOrEqualToConstant: getButtonWidth(for: currentTitle)).isActive = true
-            frame = CGRect(x: 0, y: 0, width: getButtonWidth(for: currentTitle), height: 50)
-        }
     }
 
     override func prepareForInterfaceBuilder() {
@@ -51,10 +42,4 @@ class ActionButtonOLD: UIButton {
             context.cgContext.fill(CGRect(origin: .zero, size: size))
         }
     }
-    
-    private func getButtonWidth(for currentTitle: String) -> CGFloat {
-        let letters = currentTitle.count
-        return CGFloat(7 * letters + 50)
-    }
 }
-

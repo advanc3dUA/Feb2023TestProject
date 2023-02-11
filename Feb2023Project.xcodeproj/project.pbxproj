@@ -11,15 +11,14 @@
 		BF7D403A2997E4E500F83B7D /* ButtonsArrayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF7D40382997E4E500F83B7D /* ButtonsArrayCell.xib */; };
 		BF7D403D2997F01900F83B7D /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7D403B2997F01900F83B7D /* ButtonCell.swift */; };
 		BF7D403E2997F01900F83B7D /* ButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF7D403C2997F01900F83B7D /* ButtonCell.xib */; };
-		BF7D4040299806AE00F83B7D /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7D403F299806AE00F83B7D /* ActionButton.swift */; };
+		BF7D40432998191200F83B7D /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7D40422998191200F83B7D /* Model.swift */; };
 		BF8A28882997877C00EEC398 /* TraineeVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8A28872997877C00EEC398 /* TraineeVCDelegate.swift */; };
 		BF8A288C2997A4A200EEC398 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8A288B2997A4A200EEC398 /* Constants.swift */; };
 		BF8A28942997AEF400EEC398 /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8A28922997AEF400EEC398 /* HeaderCell.swift */; };
 		BF8A28952997AEF400EEC398 /* HeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF8A28932997AEF400EEC398 /* HeaderCell.xib */; };
 		BF8A28992997B2CA00EEC398 /* DescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8A28972997B2CA00EEC398 /* DescriptionCell.swift */; };
 		BF8A289A2997B2CA00EEC398 /* DescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF8A28982997B2CA00EEC398 /* DescriptionCell.xib */; };
-		BF8A289C2997B6C900EEC398 /* ActionButtonOLD.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8A289B2997B6C900EEC398 /* ActionButtonOLD.swift */; };
-		BF8B4D22299647C900E1AF52 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8B4D21299647C900E1AF52 /* CustomCell.swift */; };
+		BF8A289C2997B6C900EEC398 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8A289B2997B6C900EEC398 /* ActionButton.swift */; };
 		BF9DB660299578E400D5F7C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9DB65F299578E400D5F7C2 /* AppDelegate.swift */; };
 		BF9DB662299578E400D5F7C2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9DB661299578E400D5F7C2 /* SceneDelegate.swift */; };
 		BF9DB664299578E400D5F7C2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9DB663299578E400D5F7C2 /* ViewController.swift */; };
@@ -34,15 +33,14 @@
 		BF7D40382997E4E500F83B7D /* ButtonsArrayCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonsArrayCell.xib; sourceTree = "<group>"; };
 		BF7D403B2997F01900F83B7D /* ButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
 		BF7D403C2997F01900F83B7D /* ButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonCell.xib; sourceTree = "<group>"; };
-		BF7D403F299806AE00F83B7D /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
+		BF7D40422998191200F83B7D /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		BF8A28872997877C00EEC398 /* TraineeVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraineeVCDelegate.swift; sourceTree = "<group>"; };
 		BF8A288B2997A4A200EEC398 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BF8A28922997AEF400EEC398 /* HeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
 		BF8A28932997AEF400EEC398 /* HeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderCell.xib; sourceTree = "<group>"; };
 		BF8A28972997B2CA00EEC398 /* DescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionCell.swift; sourceTree = "<group>"; };
 		BF8A28982997B2CA00EEC398 /* DescriptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DescriptionCell.xib; sourceTree = "<group>"; };
-		BF8A289B2997B6C900EEC398 /* ActionButtonOLD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButtonOLD.swift; sourceTree = "<group>"; };
-		BF8B4D21299647C900E1AF52 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		BF8A289B2997B6C900EEC398 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		BF9DB65C299578E400D5F7C2 /* Feb2023Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Feb2023Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF9DB65F299578E400D5F7C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF9DB661299578E400D5F7C2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,25 +63,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		BF8A28892997A2B100EEC398 /* Controllers */ = {
+		BF7D4041299818E700F83B7D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BF7D40422998191200F83B7D /* Model.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BF8A28892997A2B100EEC398 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				BF9DB663299578E400D5F7C2 /* ViewController.swift */,
 				BF8A28872997877C00EEC398 /* TraineeVCDelegate.swift */,
 				BF9DB6732995791700D5F7C2 /* TraineeViewController.swift */,
 			);
-			path = Controllers;
+			path = Controller;
 			sourceTree = "<group>";
 		};
-		BF8A288D2997AC0E00EEC398 /* Views */ = {
+		BF8A288D2997AC0E00EEC398 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				BF9DB665299578E400D5F7C2 /* Main.storyboard */,
-				BF8A289B2997B6C900EEC398 /* ActionButtonOLD.swift */,
-				BF7D403F299806AE00F83B7D /* ActionButton.swift */,
+				BF8A289B2997B6C900EEC398 /* ActionButton.swift */,
 				BF8A28962997B0B500EEC398 /* Cells */,
 			);
-			path = Views;
+			path = View;
 			sourceTree = "<group>";
 		};
 		BF8A28962997B0B500EEC398 /* Cells */ = {
@@ -122,9 +127,9 @@
 			children = (
 				BF9DB65F299578E400D5F7C2 /* AppDelegate.swift */,
 				BF9DB661299578E400D5F7C2 /* SceneDelegate.swift */,
-				BF8A28892997A2B100EEC398 /* Controllers */,
-				BF8B4D21299647C900E1AF52 /* CustomCell.swift */,
-				BF8A288D2997AC0E00EEC398 /* Views */,
+				BF7D4041299818E700F83B7D /* Model */,
+				BF8A28892997A2B100EEC398 /* Controller */,
+				BF8A288D2997AC0E00EEC398 /* View */,
 				BF8A288B2997A4A200EEC398 /* Constants.swift */,
 				BF9DB668299578E500D5F7C2 /* Assets.xcassets */,
 				BF9DB66A299578E500D5F7C2 /* LaunchScreen.storyboard */,
@@ -210,17 +215,16 @@
 			files = (
 				BF9DB664299578E400D5F7C2 /* ViewController.swift in Sources */,
 				BF7D403D2997F01900F83B7D /* ButtonCell.swift in Sources */,
-				BF7D4040299806AE00F83B7D /* ActionButton.swift in Sources */,
 				BF9DB6742995791700D5F7C2 /* TraineeViewController.swift in Sources */,
+				BF7D40432998191200F83B7D /* Model.swift in Sources */,
 				BF8A28992997B2CA00EEC398 /* DescriptionCell.swift in Sources */,
-				BF8B4D22299647C900E1AF52 /* CustomCell.swift in Sources */,
 				BF9DB660299578E400D5F7C2 /* AppDelegate.swift in Sources */,
 				BF8A28942997AEF400EEC398 /* HeaderCell.swift in Sources */,
 				BF8A288C2997A4A200EEC398 /* Constants.swift in Sources */,
 				BF7D40392997E4E500F83B7D /* ButtonsArrayCell.swift in Sources */,
 				BF8A28882997877C00EEC398 /* TraineeVCDelegate.swift in Sources */,
 				BF9DB662299578E400D5F7C2 /* SceneDelegate.swift in Sources */,
-				BF8A289C2997B6C900EEC398 /* ActionButtonOLD.swift in Sources */,
+				BF8A289C2997B6C900EEC398 /* ActionButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

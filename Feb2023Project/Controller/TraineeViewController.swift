@@ -95,6 +95,14 @@ class TraineeViewController: UITableViewController {
         }
         
     }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 1 {
+            return 75
+        } else {
+            return 50
+        }
+    }
 
     /*
     // Override to support conditional editing of the table view.
