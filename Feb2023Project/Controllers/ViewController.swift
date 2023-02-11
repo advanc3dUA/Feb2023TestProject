@@ -37,11 +37,24 @@ class ViewController: UIViewController {
     }
 }
 
+//MARK: - TraineeVCDelegate
+
 extension ViewController: TraineeVCDelegate {
     func detentChanged(detent: UISheetPresentationController.Detent.Identifier) {
-        print("Detent changed to: \(detent)")
+        switch detent.rawValue {
+        case K.large: changeTraineeVCNumberOfRows(to: 8)
+        case K.medium: changeTraineeVCNumberOfRows(to: 5)
+        case K.small: changeTraineeVCNumberOfRows(to: 3)
+        default: fatalError("Unregistered detent")
+        }
+    }
+    
+    private func changeTraineeVCNumberOfRows(to number: Int) {
+        traineeVC?.numberOfRows = number
     }
 }
+
+//MARK: - UISheetPresentationControllerDelegate
 
 extension ViewController: UISheetPresentationControllerDelegate {
     func sheetPresentationControllerDidChangeSelectedDetentIdentifier(_ sheetPresentationController: UISheetPresentationController) {

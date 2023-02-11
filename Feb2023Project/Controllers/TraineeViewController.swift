@@ -10,14 +10,14 @@ import UIKit
 class TraineeViewController: UITableViewController {
     
     weak var delegate: TraineeVCDelegate?
-    var numberOfRows = 3 {
+    var numberOfRows: Int {
         didSet {
-            print(numberOfRows)
             tableView.reloadData()
         }
     }
     
     init(smallDetentSize: CGFloat, largeDetentSize: CGFloat) {
+        self.numberOfRows = 3
         super.init(style: .plain)
         
         // Adds two custom Detents - small and large
@@ -80,7 +80,6 @@ class TraineeViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-
         return cell
     }
 
