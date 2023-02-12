@@ -10,6 +10,7 @@ import UIKit
 class TraineeViewController: UITableViewController {
     
     weak var delegate: TraineeVCDelegate?
+    
     var numberOfRows: Int {
         didSet {
             tableView.reloadData()
@@ -101,7 +102,8 @@ class TraineeViewController: UITableViewController {
                     let buttonsArrayCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.buttonsArray, for: indexPath)
                     return buttonsArrayCell
                 default:
-                    let sendCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.send, for: indexPath)
+                    let sendCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.send, for: indexPath) as! SendCell
+                sendCell.sendButton.addTarget(self, action: #selector(presentSentAlertController), for: .touchUpInside)
                     return sendCell
             }
         case 7:
@@ -201,5 +203,12 @@ class TraineeViewController: UITableViewController {
             }
         default: fatalError("Unregistered number of rows (in heightForRowAt")
         }
+    }
+    
+    @objc private func presentSentAlertController() {
+        let alert = UIAlertController(title: "Поздравляем!", message: "Ваша заявка успешно отправлена!", preferredStyle: .alert)
+        let closeButton = UIAlertAction(title: "Закрыть", style: .cancel)
+        alert.addAction(closeButton)
+        present(alert, animated: true)
     }
 }

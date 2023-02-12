@@ -9,6 +9,8 @@ import UIKit
 
 class SendCell: UITableViewCell {
 
+    @IBOutlet weak var sendButton: SendButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -19,5 +21,4 @@ class SendCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
 }

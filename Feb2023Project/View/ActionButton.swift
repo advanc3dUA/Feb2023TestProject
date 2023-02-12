@@ -31,7 +31,6 @@ class ActionButton: UIButton {
         setTitleColor(.black, for: .normal)
         setTitleColor(.white, for: .selected)
         titleLabel?.font = UIFont.preferredFont(forTextStyle: .caption1)
-//        titleLabel?.font = UIFont.preferredFont(forTextStyle: .subheadline)
         layer.cornerRadius = 10
         layer.masksToBounds = true
     }

@@ -42,12 +42,15 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="sendButton" destination="DEx-fx-XG2" id="wRg-7t-P8t"/>
+            </connections>
             <point key="canvasLocation" x="-23" y="21"/>
         </tableViewCell>
     </objects>
     <designables>
         <designable name="DEx-fx-XG2">
-            <size key="intrinsicContentSize" width="128" height="18"/>
+            <size key="intrinsicContentSize" width="121" height="29"/>
         </designable>
     </designables>
 </document>
