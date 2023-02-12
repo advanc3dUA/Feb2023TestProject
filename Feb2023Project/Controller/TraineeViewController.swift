@@ -82,6 +82,7 @@ class TraineeViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+                
         switch indexPath.row {
         case 0:
             let headerCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.header, for: indexPath)
@@ -89,8 +90,13 @@ class TraineeViewController: UITableViewController {
         case 1:
             let buttonsArrayCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.buttonsArray, for: indexPath)
             return buttonsArrayCell
+        case 2:
+            let descriptionCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.description, for: indexPath) as! DescriptionCell
+            descriptionCell.descriptionLabel.text = Model.description2
+            return descriptionCell
         default:
-            let descriptionCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.description, for: indexPath)
+            let descriptionCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.description, for: indexPath) as! DescriptionCell
+            descriptionCell.descriptionLabel.text = Model.description
             return descriptionCell
         }
         
