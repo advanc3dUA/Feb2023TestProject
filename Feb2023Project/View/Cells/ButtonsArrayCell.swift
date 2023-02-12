@@ -29,7 +29,7 @@ class ButtonsArrayCell: UITableViewCell {
         
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         
-        collectionView.register(UINib(nibName: "ButtonCell", bundle: nil), forCellWithReuseIdentifier: "ButtonCell")
+        collectionView.register(UINib(nibName: K.CLCell.button, bundle: nil), forCellWithReuseIdentifier: K.CLCell.button)
         collectionView.backgroundColor = .white
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -51,7 +51,7 @@ extension ButtonsArrayCell: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ButtonCell", for: indexPath) as! ButtonCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.CLCell.button, for: indexPath) as! ButtonCell
         cell.button.setTitle(Model.courses[indexPath.row], for: .normal)
         return cell
     }

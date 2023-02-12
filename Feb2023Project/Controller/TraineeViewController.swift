@@ -58,6 +58,7 @@ class TraineeViewController: UITableViewController {
         tableView.register(UINib(nibName: K.Cell.description, bundle: nil), forCellReuseIdentifier: K.Cell.description)
         tableView.register(UINib(nibName: K.Cell.buttonsArray, bundle: nil), forCellReuseIdentifier: K.Cell.buttonsArray)
         tableView.register(UINib(nibName: K.Cell.courses, bundle: nil), forCellReuseIdentifier: K.Cell.courses)
+        tableView.register(UINib(nibName: K.Cell.send, bundle: nil), forCellReuseIdentifier: K.Cell.send)
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -101,9 +102,11 @@ class TraineeViewController: UITableViewController {
             descriptionCell.descriptionLabel.text = Model.description2
             return descriptionCell
         default:
-            let descriptionCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.description, for: indexPath) as! DescriptionCell
-            descriptionCell.descriptionLabel.text = Model.description
-            return descriptionCell
+//            let descriptionCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.description, for: indexPath) as! DescriptionCell
+//            descriptionCell.descriptionLabel.text = Model.description
+//            return descriptionCell
+            let sendCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.send, for: indexPath)
+            return sendCell
         }
         
     }

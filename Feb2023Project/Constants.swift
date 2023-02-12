@@ -19,5 +19,10 @@ struct K {
         static let description = "DescriptionCell"
         static let buttonsArray = "ButtonsArrayCell"
         static let courses = "CoursesCell"
+        static let send = "SendCell"
+    }
+    
+    struct CLCell {
+        static let button = "ButtonCell"
     }
 }
