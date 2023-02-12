@@ -17,7 +17,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="maN-4k-xyc" customClass="ActionButton" customModule="Feb2023Project" customModuleProvider="target">
-                        <rect key="frame" x="20" y="0.0" width="55" height="44"/>
+                        <rect key="frame" x="20" y="-3" width="99" height="50"/>
                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                         <state key="normal" title="Button0"/>
                         <connections>
@@ -25,7 +25,7 @@
                         </connections>
                     </button>
                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aYF-ax-KR5" customClass="ActionButton" customModule="Feb2023Project" customModuleProvider="target">
-                        <rect key="frame" x="147" y="0.0" width="55" height="44"/>
+                        <rect key="frame" x="238" y="-3" width="99" height="50"/>
                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                         <state key="normal" title="Button2"/>
                         <connections>
@@ -33,7 +33,7 @@
                         </connections>
                     </button>
                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ZC-Gb-Bfv" customClass="ActionButton" customModule="Feb2023Project" customModuleProvider="target">
-                        <rect key="frame" x="85" y="0.0" width="52" height="44"/>
+                        <rect key="frame" x="129" y="-3" width="99" height="50"/>
                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                         <state key="normal" title="Button1"/>
                         <connections>
@@ -43,14 +43,11 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="maN-4k-xyc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="4VJ-kg-Uj5"/>
-                    <constraint firstAttribute="bottom" secondItem="aYF-ax-KR5" secondAttribute="bottom" id="KOc-DR-wts"/>
                     <constraint firstItem="aYF-ax-KR5" firstAttribute="leading" secondItem="3ZC-Gb-Bfv" secondAttribute="trailing" constant="10" id="MKC-yA-557"/>
-                    <constraint firstItem="3ZC-Gb-Bfv" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="dUa-NX-wuP"/>
-                    <constraint firstItem="maN-4k-xyc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="jb9-2l-iok"/>
-                    <constraint firstAttribute="bottom" secondItem="3ZC-Gb-Bfv" secondAttribute="bottom" id="nOO-UP-eQQ"/>
-                    <constraint firstAttribute="bottom" secondItem="maN-4k-xyc" secondAttribute="bottom" id="qRV-rx-ANp"/>
+                    <constraint firstItem="aYF-ax-KR5" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ecV-h2-v9S"/>
+                    <constraint firstItem="maN-4k-xyc" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="hAn-xO-9g7"/>
                     <constraint firstItem="3ZC-Gb-Bfv" firstAttribute="leading" secondItem="maN-4k-xyc" secondAttribute="trailing" constant="10" id="rpZ-Z3-kSc"/>
-                    <constraint firstItem="aYF-ax-KR5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="uBI-Rz-ORz"/>
+                    <constraint firstItem="3ZC-Gb-Bfv" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="wze-YO-iXM"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -64,13 +61,13 @@
     </objects>
     <designables>
         <designable name="3ZC-Gb-Bfv">
-            <size key="intrinsicContentSize" width="52" height="30"/>
+            <size key="intrinsicContentSize" width="99" height="50"/>
         </designable>
         <designable name="aYF-ax-KR5">
-            <size key="intrinsicContentSize" width="55" height="30"/>
+            <size key="intrinsicContentSize" width="99" height="50"/>
         </designable>
         <designable name="maN-4k-xyc">
-            <size key="intrinsicContentSize" width="55" height="30"/>
+            <size key="intrinsicContentSize" width="99" height="50"/>
         </designable>
     </designables>
 </document>

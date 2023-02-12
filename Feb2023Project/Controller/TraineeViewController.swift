@@ -53,6 +53,7 @@ class TraineeViewController: UITableViewController {
         
         self.view.backgroundColor = .white
         tableView.allowsSelection = false
+        tableView.separatorStyle = .none
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         tableView.register(UINib(nibName: K.Cell.header, bundle: nil), forCellReuseIdentifier: K.Cell.header)
@@ -60,12 +61,6 @@ class TraineeViewController: UITableViewController {
         tableView.register(UINib(nibName: K.Cell.buttonsArray, bundle: nil), forCellReuseIdentifier: K.Cell.buttonsArray)
         tableView.register(UINib(nibName: K.Cell.courses, bundle: nil), forCellReuseIdentifier: K.Cell.courses)
         tableView.register(UINib(nibName: K.Cell.send, bundle: nil), forCellReuseIdentifier: K.Cell.send)
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
     private func detentChanged(_ detent: UISheetPresentationController.Detent.Identifier) {
@@ -85,85 +80,120 @@ class TraineeViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch numberOfRows {
+        case 4:
+            switch indexPath.row {
+                case 0:
+                    let headerCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.header, for: indexPath)
+                    return headerCell
                 
-        switch indexPath.row {
-        case 0:
-            let headerCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.header, for: indexPath)
-            return headerCell
-//            let coursesCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.courses, for: indexPath) as! CoursesCell
-//            for index in 0...2 {
-//                coursesCell.courseButtons[index].setTitle(Model.courses[index], for: .normal)
-//            }
-//            return coursesCell
-        case 1:
-            let descriptionCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.description, for: indexPath) as! DescriptionCell
-            descriptionCell.descriptionLabel.text = Model.description
-            return descriptionCell
-        case 2:
-            let buttonsArrayCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.buttonsArray, for: indexPath)
-            return buttonsArrayCell
-        default:
-//            let descriptionCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.description, for: indexPath) as! DescriptionCell
-//            descriptionCell.descriptionLabel.text = Model.description
-//            return descriptionCell
-            let sendCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.send, for: indexPath)
-            return sendCell
+                case 1:
+                    let descriptionCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.description, for: indexPath) as! DescriptionCell
+                    descriptionCell.descriptionLabel.text = Model.description
+                    return descriptionCell
+                case 2:
+                    let buttonsArrayCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.buttonsArray, for: indexPath)
+                    return buttonsArrayCell
+                default:
+                    let sendCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.send, for: indexPath)
+                    return sendCell
+            }
+        case 7:
+            switch indexPath.row {
+            case 0:
+                let headerCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.header, for: indexPath)
+                return headerCell
+                
+            case 1:
+                let descriptionCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.description, for: indexPath) as! DescriptionCell
+                descriptionCell.descriptionLabel.text = Model.description
+                return descriptionCell
+            case 2:
+                let buttonsArrayCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.buttonsArray, for: indexPath)
+                return buttonsArrayCell
+            case 3:
+                let descriptionCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.description, for: indexPath) as! DescriptionCell
+                descriptionCell.descriptionLabel.text = Model.description2
+                return descriptionCell
+            case 4:
+                let coursesCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.courses, for: indexPath) as! CoursesCell
+                for index in 0...2 {
+                    coursesCell.courseButtons[index].setTitle(Model.courses[index], for: .normal)
+                }
+                return coursesCell
+            case 5:
+                let coursesCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.courses, for: indexPath) as! CoursesCell
+                for index in 0...2 {
+                    coursesCell.courseButtons[index].setTitle(Model.courses[index + 3], for: .normal)
+                }
+                return coursesCell
+            default:
+                let sendCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.send, for: indexPath)
+                return sendCell
+            }
+        case 8:
+            switch indexPath.row {
+            case 0:
+                let headerCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.header, for: indexPath)
+                return headerCell
+                
+            case 1:
+                let descriptionCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.description, for: indexPath) as! DescriptionCell
+                descriptionCell.descriptionLabel.text = Model.description
+                return descriptionCell
+            case 2:
+                let buttonsArrayCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.buttonsArray, for: indexPath)
+                return buttonsArrayCell
+            case 3:
+                let descriptionCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.description, for: indexPath) as! DescriptionCell
+                descriptionCell.descriptionLabel.text = Model.description2
+                return descriptionCell
+            case 4:
+                let coursesCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.courses, for: indexPath) as! CoursesCell
+                for index in 0...2 {
+                    coursesCell.courseButtons[index].setTitle(Model.courses[index], for: .normal)
+                }
+                return coursesCell
+            case 5:
+                let coursesCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.courses, for: indexPath) as! CoursesCell
+                for index in 0...2 {
+                    coursesCell.courseButtons[index].setTitle(Model.courses[index + 3], for: .normal)
+                }
+                return coursesCell
+            case 6:
+                let emptyCell = UITableViewCell()
+                emptyCell.backgroundColor = .clear
+                return emptyCell
+            default:
+                let sendCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.send, for: indexPath)
+                return sendCell
+            }
+        default: fatalError("Unregistered number of rows (in numberOfRowsInSection")
         }
-        
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch indexPath.row {
-            case 0, 2: return 65
-            case 3: return 75
-            default: return 50
+        switch numberOfRows {
+        case 4:
+            switch indexPath.row {
+                case 0, 2: return 65
+                case 3: return 75
+                default: return 50
+            }
+        case 7:
+            switch indexPath.row {
+                case 0, 2, 4, 5: return 65
+                case 6: return 75
+                default: return 50
+            }
+        case 8:
+            switch indexPath.row {
+                case 0, 2, 4, 5: return 65
+                case 6: return 250
+                case 7: return 75
+                default: return 50
+            }
+        default: fatalError("Unregistered number of rows (in heightForRowAt")
         }
     }
-    
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
