@@ -17,6 +17,9 @@ class TraineeViewController: UITableViewController {
         }
     }
     
+    let headerCellViewModel = HeaderCellViewModel()
+    let descriptionCellViewModel = DescriptionCellViewModel()
+    
     init(smallDetentSize: CGFloat, mediumDetentSize: CGFloat, largeDetentSize: CGFloat) {
         self.numberOfRows = 4
         super.init(style: .plain)
@@ -85,16 +88,18 @@ class TraineeViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // I am not proud of this switch-case oriented programming. No to time for viewModels implemetnation :(
         switch numberOfRows {
         case 4:
             switch indexPath.row {
                 case 0:
-                    let headerCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.header, for: indexPath)
+                    let headerCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.header, for: indexPath) as! HeaderCell
+                    configureHeaderCell(headerCell, with: headerCellViewModel)
                     return headerCell
                 
                 case 1:
                     let descriptionCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.description, for: indexPath) as! DescriptionCell
-                    descriptionCell.descriptionLabel.text = Model.description
+                    configureDescriptionCell(descriptionCell, with: descriptionCellViewModel)
                     return descriptionCell
                 case 2:
                     let buttonsArrayCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.buttonsArray, for: indexPath)
@@ -107,12 +112,12 @@ class TraineeViewController: UITableViewController {
         case 7:
             switch indexPath.row {
             case 0:
-                let headerCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.header, for: indexPath)
+                let headerCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.header, for: indexPath) as! HeaderCell
+                configureHeaderCell(headerCell, with: headerCellViewModel)
                 return headerCell
-                
             case 1:
                 let descriptionCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.description, for: indexPath) as! DescriptionCell
-                descriptionCell.descriptionLabel.text = Model.description
+                configureDescriptionCell(descriptionCell, with: descriptionCellViewModel)
                 return descriptionCell
             case 2:
                 let buttonsArrayCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.buttonsArray, for: indexPath)
@@ -146,12 +151,12 @@ class TraineeViewController: UITableViewController {
         case 8:
             switch indexPath.row {
             case 0:
-                let headerCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.header, for: indexPath)
+                let headerCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.header, for: indexPath) as! HeaderCell
+                configureHeaderCell(headerCell, with: headerCellViewModel)
                 return headerCell
-                
             case 1:
                 let descriptionCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.description, for: indexPath) as! DescriptionCell
-                descriptionCell.descriptionLabel.text = Model.description
+                configureDescriptionCell(descriptionCell, with: descriptionCellViewModel)
                 return descriptionCell
             case 2:
                 let buttonsArrayCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.buttonsArray, for: indexPath)
@@ -225,5 +230,13 @@ class TraineeViewController: UITableViewController {
     @objc private func midButtonWasClicked(sender: ActionButton) {
         Model.middleActionButtons[sender.tag].state = !sender.isSelected
         sender.isSelected = Model.middleActionButtons[sender.tag].state
+    }
+    
+    private func configureHeaderCell(_ headerCell: HeaderCell, with headerCellViewModel: HeaderCellViewModel) {
+        headerCell.headerCell.text = headerCellViewModel.title
+    }
+    
+    private func configureDescriptionCell(_ descriptionCell: DescriptionCell, with descriptionCellViewModel: DescriptionCellViewModel) {
+        descriptionCell.descriptionLabel.text = descriptionCellViewModel.description1
     }
 }

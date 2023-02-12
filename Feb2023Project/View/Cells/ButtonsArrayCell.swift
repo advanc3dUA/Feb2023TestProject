@@ -52,7 +52,6 @@ extension ButtonsArrayCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.CLCell.button, for: indexPath) as! ButtonCell
-//        cell.button.setTitle(Model.courses[indexPath.row], for: .normal)
         cell.button.setTitle(Model.topActionButtons[indexPath.row].title, for: .normal)
         cell.button.isSelected = Model.topActionButtons[indexPath.row].state
         cell.button.tag = indexPath.row

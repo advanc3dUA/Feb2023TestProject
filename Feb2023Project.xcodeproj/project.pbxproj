@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		BF57622B29992B7A00E469A6 /* ActionButtonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF57622A29992B7A00E469A6 /* ActionButtonModel.swift */; };
+		BF57622D2999444400E469A6 /* HeaderCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF57622C2999444400E469A6 /* HeaderCellViewModel.swift */; };
+		BF57622F29994BBB00E469A6 /* DescriptionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF57622E29994BBB00E469A6 /* DescriptionCellViewModel.swift */; };
 		BF7D40392997E4E500F83B7D /* ButtonsArrayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7D40372997E4E500F83B7D /* ButtonsArrayCell.swift */; };
 		BF7D403A2997E4E500F83B7D /* ButtonsArrayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF7D40382997E4E500F83B7D /* ButtonsArrayCell.xib */; };
 		BF7D403D2997F01900F83B7D /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7D403B2997F01900F83B7D /* ButtonCell.swift */; };
@@ -36,6 +38,8 @@
 
 /* Begin PBXFileReference section */
 		BF57622A29992B7A00E469A6 /* ActionButtonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButtonModel.swift; sourceTree = "<group>"; };
+		BF57622C2999444400E469A6 /* HeaderCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCellViewModel.swift; sourceTree = "<group>"; };
+		BF57622E29994BBB00E469A6 /* DescriptionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionCellViewModel.swift; sourceTree = "<group>"; };
 		BF7D40372997E4E500F83B7D /* ButtonsArrayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsArrayCell.swift; sourceTree = "<group>"; };
 		BF7D40382997E4E500F83B7D /* ButtonsArrayCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonsArrayCell.xib; sourceTree = "<group>"; };
 		BF7D403B2997F01900F83B7D /* ButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
@@ -100,6 +104,8 @@
 				BF9DB665299578E400D5F7C2 /* Main.storyboard */,
 				BF8A289B2997B6C900EEC398 /* ActionButton.swift */,
 				BF8C58CF2998F910002580FE /* SendButton.swift */,
+				BF57622C2999444400E469A6 /* HeaderCellViewModel.swift */,
+				BF57622E29994BBB00E469A6 /* DescriptionCellViewModel.swift */,
 				BF8A28962997B0B500EEC398 /* Cells */,
 			);
 			path = View;
@@ -240,6 +246,7 @@
 				BF7D40432998191200F83B7D /* Model.swift in Sources */,
 				BF8A28992997B2CA00EEC398 /* DescriptionCell.swift in Sources */,
 				BF9DB660299578E400D5F7C2 /* AppDelegate.swift in Sources */,
+				BF57622F29994BBB00E469A6 /* DescriptionCellViewModel.swift in Sources */,
 				BF8C58D02998F910002580FE /* SendButton.swift in Sources */,
 				BF8A28942997AEF400EEC398 /* HeaderCell.swift in Sources */,
 				BF8C58D32998F9BD002580FE /* SendCell.swift in Sources */,
@@ -249,6 +256,7 @@
 				BF57622B29992B7A00E469A6 /* ActionButtonModel.swift in Sources */,
 				BF9DB662299578E400D5F7C2 /* SceneDelegate.swift in Sources */,
 				BF8A289C2997B6C900EEC398 /* ActionButton.swift in Sources */,
+				BF57622D2999444400E469A6 /* HeaderCellViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

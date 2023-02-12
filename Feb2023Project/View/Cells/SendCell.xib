@@ -50,7 +50,7 @@
     </objects>
     <designables>
         <designable name="DEx-fx-XG2">
-            <size key="intrinsicContentSize" width="121" height="29"/>
+            <size key="intrinsicContentSize" width="128" height="18"/>
         </designable>
     </designables>
 </document>

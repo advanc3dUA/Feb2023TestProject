@@ -25,14 +25,9 @@ class SendButton: UIButton {
         setBackgroundImage(image(with: .systemRed), for: .selected)
         setTitleColor(.white, for: .normal)
         setTitleColor(.white, for: .selected)
-//        titleLabel?.font = UIFont.preferredFont(forTextStyle: .body)
         titleLabel?.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.subheadline)
         layer.cornerRadius = 25
         layer.masksToBounds = true
-    }
-
-    override func prepareForInterfaceBuilder() {
-        setup()
     }
     
     private func image(with color: UIColor) -> UIImage {

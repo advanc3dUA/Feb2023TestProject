@@ -35,10 +35,6 @@ class ActionButton: UIButton {
         layer.masksToBounds = true
     }
 
-    override func prepareForInterfaceBuilder() {
-        setup()
-    }
-    
     private func image(with color: UIColor) -> UIImage {
         let size = CGSize(width: 1, height: 1)
         let renderer = UIGraphicsImageRenderer(size: size)

@@ -14,6 +14,12 @@ struct K {
         static let small = "small"
     }
     
+    struct DetentsHeight {
+        static let large = 0.87
+        static let medium = 0.55
+        static let small = 0.33
+    }
+    
     struct Cell {
         static let header = "HeaderCell"
         static let description = "DescriptionCell"
