@@ -20,9 +20,5 @@ class ButtonCell: UICollectionViewCell {
         super.init(coder: coder)
         button = ActionButton()
     }
-    
-    @IBAction func buttonPressed(_ sender: ActionButton) {
-        sender.isSelected = !sender.isSelected
-    }
 }
 

@@ -8,7 +8,7 @@
 import Foundation
 
 struct Model {
-    static let courses = [
+    private static let courses = [
                         "IOS",
                         "Android",
                         "Design",
@@ -23,7 +23,16 @@ struct Model {
     static let description = "Работай над реальными задачами под руководством опытного наставника и получи возможность стать частью команды мечты."
     static let description2 = "Получай стипендию, выстраивай удобный график, работай на современном железе"
     
-    static var actionButtons: [ActionButtonModel] = {
+    static var middleActionButtons: [ActionButtonModel] = {
+        var array: [ActionButtonModel] = []
+        for index in 0...5 {
+            let newButton = ActionButtonModel(title: courses[index])
+            array.append(newButton)
+        }
+        return array
+    }()
+    
+    static var topActionButtons: [ActionButtonModel] = {
         var array: [ActionButtonModel] = []
         for index in 0...9 {
             let newButton = ActionButtonModel(title: courses[index])

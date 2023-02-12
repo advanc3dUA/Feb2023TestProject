@@ -124,19 +124,19 @@ class TraineeViewController: UITableViewController {
             case 4:
                 let coursesCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.courses, for: indexPath) as! CoursesCell
                 for index in 0...2 {
-                    coursesCell.courseButtons[index].setTitle(Model.actionButtons[index].title, for: .normal)
-                    coursesCell.courseButtons[index].isSelected = Model.actionButtons[index].state
+                    coursesCell.courseButtons[index].setTitle(Model.middleActionButtons[index].title, for: .normal)
+                    coursesCell.courseButtons[index].isSelected = Model.middleActionButtons[index].state
                     coursesCell.courseButtons[index].tag = index
-                    coursesCell.courseButtons[index].addTarget(self, action: #selector(buttonWasClicked(sender:)), for: .touchUpInside)
+                    coursesCell.courseButtons[index].addTarget(self, action: #selector(midButtonWasClicked(sender:)), for: .touchUpInside)
                 }
                 return coursesCell
             case 5:
                 let coursesCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.courses, for: indexPath) as! CoursesCell
                 for index in 0...2 {
-                    coursesCell.courseButtons[index].setTitle(Model.actionButtons[index + 3].title, for: .normal)
-                    coursesCell.courseButtons[index].isSelected = Model.actionButtons[index + 3].state
+                    coursesCell.courseButtons[index].setTitle(Model.middleActionButtons[index + 3].title, for: .normal)
+                    coursesCell.courseButtons[index].isSelected = Model.middleActionButtons[index + 3].state
                     coursesCell.courseButtons[index].tag = index + 3
-                    coursesCell.courseButtons[index].addTarget(self, action: #selector(buttonWasClicked(sender:)), for: .touchUpInside)
+                    coursesCell.courseButtons[index].addTarget(self, action: #selector(midButtonWasClicked(sender:)), for: .touchUpInside)
                 }
                 return coursesCell
             default:
@@ -163,19 +163,19 @@ class TraineeViewController: UITableViewController {
             case 4:
                 let coursesCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.courses, for: indexPath) as! CoursesCell
                 for index in 0...2 {
-                    coursesCell.courseButtons[index].setTitle(Model.actionButtons[index].title, for: .normal)
-                    coursesCell.courseButtons[index].isSelected = Model.actionButtons[index].state
+                    coursesCell.courseButtons[index].setTitle(Model.middleActionButtons[index].title, for: .normal)
+                    coursesCell.courseButtons[index].isSelected = Model.middleActionButtons[index].state
                     coursesCell.courseButtons[index].tag = index
-                    coursesCell.courseButtons[index].addTarget(self, action: #selector(buttonWasClicked(sender:)), for: .touchUpInside)
+                    coursesCell.courseButtons[index].addTarget(self, action: #selector(midButtonWasClicked(sender:)), for: .touchUpInside)
                 }
                 return coursesCell
             case 5:
                 let coursesCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.courses, for: indexPath) as! CoursesCell
                 for index in 0...2 {
-                    coursesCell.courseButtons[index].setTitle(Model.actionButtons[index + 3].title, for: .normal)
-                    coursesCell.courseButtons[index].isSelected = Model.actionButtons[index + 3].state
+                    coursesCell.courseButtons[index].setTitle(Model.middleActionButtons[index + 3].title, for: .normal)
+                    coursesCell.courseButtons[index].isSelected = Model.middleActionButtons[index + 3].state
                     coursesCell.courseButtons[index].tag = index + 3
-                    coursesCell.courseButtons[index].addTarget(self, action: #selector(buttonWasClicked(sender:)), for: .touchUpInside)
+                    coursesCell.courseButtons[index].addTarget(self, action: #selector(midButtonWasClicked(sender:)), for: .touchUpInside)
                 }
                 return coursesCell
             case 6:
@@ -222,9 +222,8 @@ class TraineeViewController: UITableViewController {
         present(alert, animated: true)
     }
     
-    @objc private func buttonWasClicked(sender: UIButton) {
-        Model.actionButtons[sender.tag].state = !sender.isSelected
-        sender.isSelected = Model.actionButtons[sender.tag].state
-        print("from tableview")
+    @objc private func midButtonWasClicked(sender: ActionButton) {
+        Model.middleActionButtons[sender.tag].state = !sender.isSelected
+        sender.isSelected = Model.middleActionButtons[sender.tag].state
     }
 }

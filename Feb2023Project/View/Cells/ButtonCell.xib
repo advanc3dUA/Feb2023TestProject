@@ -22,9 +22,6 @@
                         <state key="normal" title="Button">
                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </state>
-                        <connections>
-                            <action selector="buttonPressed:" destination="gTV-IL-0wX" eventType="touchUpInside" id="Qeu-Sl-hED"/>
-                        </connections>
                     </button>
                 </subviews>
             </view>
@@ -43,7 +40,7 @@
     </objects>
     <designables>
         <designable name="dD8-q0-pFx">
-            <size key="intrinsicContentSize" width="51" height="21"/>
+            <size key="intrinsicContentSize" width="92" height="50"/>
         </designable>
     </designables>
 </document>

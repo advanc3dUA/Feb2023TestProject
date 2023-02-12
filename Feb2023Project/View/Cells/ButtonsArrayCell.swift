@@ -47,19 +47,28 @@ class ButtonsArrayCell: UITableViewCell {
 
 extension ButtonsArrayCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return Model.courses.count
+        return Model.topActionButtons.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.CLCell.button, for: indexPath) as! ButtonCell
-        cell.button.setTitle(Model.courses[indexPath.row], for: .normal)
+//        cell.button.setTitle(Model.courses[indexPath.row], for: .normal)
+        cell.button.setTitle(Model.topActionButtons[indexPath.row].title, for: .normal)
+        cell.button.isSelected = Model.topActionButtons[indexPath.row].state
+        cell.button.tag = indexPath.row
+        cell.button.addTarget(self, action: #selector(topButtonWasClicked(sender:)), for: .touchUpInside)
         return cell
+    }
+    
+    @objc func topButtonWasClicked(sender: ActionButton) {
+        Model.topActionButtons[sender.tag].state = !sender.isSelected
+        sender.isSelected = Model.topActionButtons[sender.tag].state
     }
 }
 
 extension ButtonsArrayCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let letters = Model.courses[indexPath.row].count
+        guard let letters = Model.topActionButtons[indexPath.row].title?.count else { return CGSize(width: 75, height: 50) }
         let cellWidth = CGFloat(7 * letters + 50)
         return CGSize(width: cellWidth, height: 50)
     }
