@@ -22,4 +22,13 @@ struct Model {
                         ]
     static let description = "Работай над реальными задачами под руководством опытного наставника и получи возможность стать частью команды мечты."
     static let description2 = "Получай стипендию, выстраивай удобный график, работай на современном железе"
+    
+    static var actionButtons: [ActionButtonModel] = {
+        var array: [ActionButtonModel] = []
+        for index in 0...9 {
+            let newButton = ActionButtonModel(title: courses[index])
+            array.append(newButton)
+        }
+        return array
+    }()
 }

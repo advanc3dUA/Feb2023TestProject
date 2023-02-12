@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF57622B29992B7A00E469A6 /* ActionButtonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF57622A29992B7A00E469A6 /* ActionButtonModel.swift */; };
 		BF7D40392997E4E500F83B7D /* ButtonsArrayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7D40372997E4E500F83B7D /* ButtonsArrayCell.swift */; };
 		BF7D403A2997E4E500F83B7D /* ButtonsArrayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF7D40382997E4E500F83B7D /* ButtonsArrayCell.xib */; };
 		BF7D403D2997F01900F83B7D /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7D403B2997F01900F83B7D /* ButtonCell.swift */; };
@@ -34,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BF57622A29992B7A00E469A6 /* ActionButtonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButtonModel.swift; sourceTree = "<group>"; };
 		BF7D40372997E4E500F83B7D /* ButtonsArrayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsArrayCell.swift; sourceTree = "<group>"; };
 		BF7D40382997E4E500F83B7D /* ButtonsArrayCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonsArrayCell.xib; sourceTree = "<group>"; };
 		BF7D403B2997F01900F83B7D /* ButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				BF7D40422998191200F83B7D /* Model.swift */,
+				BF57622A29992B7A00E469A6 /* ActionButtonModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 				BF8A288C2997A4A200EEC398 /* Constants.swift in Sources */,
 				BF7D40392997E4E500F83B7D /* ButtonsArrayCell.swift in Sources */,
 				BF8A28882997877C00EEC398 /* TraineeVCDelegate.swift in Sources */,
+				BF57622B29992B7A00E469A6 /* ActionButtonModel.swift in Sources */,
 				BF9DB662299578E400D5F7C2 /* SceneDelegate.swift in Sources */,
 				BF8A289C2997B6C900EEC398 /* ActionButton.swift in Sources */,
 			);

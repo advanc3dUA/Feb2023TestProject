@@ -20,25 +20,16 @@
                         <rect key="frame" x="20" y="-3" width="99" height="50"/>
                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                         <state key="normal" title="Button0"/>
-                        <connections>
-                            <action selector="courseButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="eyC-Ib-VQu"/>
-                        </connections>
                     </button>
                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aYF-ax-KR5" customClass="ActionButton" customModule="Feb2023Project" customModuleProvider="target">
                         <rect key="frame" x="238" y="-3" width="99" height="50"/>
                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                         <state key="normal" title="Button2"/>
-                        <connections>
-                            <action selector="courseButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="cEO-1S-sTp"/>
-                        </connections>
                     </button>
                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ZC-Gb-Bfv" customClass="ActionButton" customModule="Feb2023Project" customModuleProvider="target">
                         <rect key="frame" x="129" y="-3" width="99" height="50"/>
                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                         <state key="normal" title="Button1"/>
-                        <connections>
-                            <action selector="courseButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ag8-sG-prU"/>
-                        </connections>
                     </button>
                 </subviews>
                 <constraints>

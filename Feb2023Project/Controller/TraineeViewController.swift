@@ -77,12 +77,10 @@ class TraineeViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return numberOfRows
     }
 
@@ -126,13 +124,19 @@ class TraineeViewController: UITableViewController {
             case 4:
                 let coursesCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.courses, for: indexPath) as! CoursesCell
                 for index in 0...2 {
-                    coursesCell.courseButtons[index].setTitle(Model.courses[index], for: .normal)
+                    coursesCell.courseButtons[index].setTitle(Model.actionButtons[index].title, for: .normal)
+                    coursesCell.courseButtons[index].isSelected = Model.actionButtons[index].state
+                    coursesCell.courseButtons[index].tag = index
+                    coursesCell.courseButtons[index].addTarget(self, action: #selector(buttonWasClicked(sender:)), for: .touchUpInside)
                 }
                 return coursesCell
             case 5:
                 let coursesCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.courses, for: indexPath) as! CoursesCell
                 for index in 0...2 {
-                    coursesCell.courseButtons[index].setTitle(Model.courses[index + 3], for: .normal)
+                    coursesCell.courseButtons[index].setTitle(Model.actionButtons[index + 3].title, for: .normal)
+                    coursesCell.courseButtons[index].isSelected = Model.actionButtons[index + 3].state
+                    coursesCell.courseButtons[index].tag = index + 3
+                    coursesCell.courseButtons[index].addTarget(self, action: #selector(buttonWasClicked(sender:)), for: .touchUpInside)
                 }
                 return coursesCell
             default:
@@ -159,13 +163,19 @@ class TraineeViewController: UITableViewController {
             case 4:
                 let coursesCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.courses, for: indexPath) as! CoursesCell
                 for index in 0...2 {
-                    coursesCell.courseButtons[index].setTitle(Model.courses[index], for: .normal)
+                    coursesCell.courseButtons[index].setTitle(Model.actionButtons[index].title, for: .normal)
+                    coursesCell.courseButtons[index].isSelected = Model.actionButtons[index].state
+                    coursesCell.courseButtons[index].tag = index
+                    coursesCell.courseButtons[index].addTarget(self, action: #selector(buttonWasClicked(sender:)), for: .touchUpInside)
                 }
                 return coursesCell
             case 5:
                 let coursesCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.courses, for: indexPath) as! CoursesCell
                 for index in 0...2 {
-                    coursesCell.courseButtons[index].setTitle(Model.courses[index + 3], for: .normal)
+                    coursesCell.courseButtons[index].setTitle(Model.actionButtons[index + 3].title, for: .normal)
+                    coursesCell.courseButtons[index].isSelected = Model.actionButtons[index + 3].state
+                    coursesCell.courseButtons[index].tag = index + 3
+                    coursesCell.courseButtons[index].addTarget(self, action: #selector(buttonWasClicked(sender:)), for: .touchUpInside)
                 }
                 return coursesCell
             case 6:
@@ -210,5 +220,11 @@ class TraineeViewController: UITableViewController {
         let closeButton = UIAlertAction(title: "Закрыть", style: .cancel)
         alert.addAction(closeButton)
         present(alert, animated: true)
+    }
+    
+    @objc private func buttonWasClicked(sender: UIButton) {
+        Model.actionButtons[sender.tag].state = !sender.isSelected
+        sender.isSelected = Model.actionButtons[sender.tag].state
+        print("from tableview")
     }
 }

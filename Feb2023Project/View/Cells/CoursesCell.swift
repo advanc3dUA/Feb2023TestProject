@@ -35,8 +35,4 @@ class CoursesCell: UITableViewCell {
     private func setupButtons() {
         courseButtons = Array(repeating: ActionButton(), count: 3)
     }
-    
-    @IBAction func courseButtonPressed(_ sender: ActionButton) {
-        sender.isSelected = !sender.isSelected
-    }
 }
