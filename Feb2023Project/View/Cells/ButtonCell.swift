@@ -13,25 +13,16 @@ class ButtonCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setup()
+        button = ActionButton()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        setup()
-    }
-    
-    private func setup() {
         button = ActionButton()
-        contentView.addSubview(button)
     }
     
     @IBAction func buttonPressed(_ sender: ActionButton) {
         sender.isSelected = !sender.isSelected
-    }
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        button.setTitle(nil, for: .normal)
     }
 }
 

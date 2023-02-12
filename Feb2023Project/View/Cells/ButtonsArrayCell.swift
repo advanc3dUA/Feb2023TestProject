@@ -39,7 +39,7 @@ class ButtonsArrayCell: UITableViewCell {
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: contentView.topAnchor),
             collectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            collectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             collectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
         ])
     }
@@ -63,7 +63,6 @@ extension ButtonsArrayCell: UICollectionViewDelegateFlowLayout {
         let cellWidth = CGFloat(7 * letters + 50)
         return CGSize(width: cellWidth, height: 50)
     }
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 10
     }

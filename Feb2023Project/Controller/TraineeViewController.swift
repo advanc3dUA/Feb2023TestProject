@@ -57,6 +57,7 @@ class TraineeViewController: UITableViewController {
         tableView.register(UINib(nibName: K.Cell.header, bundle: nil), forCellReuseIdentifier: K.Cell.header)
         tableView.register(UINib(nibName: K.Cell.description, bundle: nil), forCellReuseIdentifier: K.Cell.description)
         tableView.register(UINib(nibName: K.Cell.buttonsArray, bundle: nil), forCellReuseIdentifier: K.Cell.buttonsArray)
+        tableView.register(UINib(nibName: K.Cell.courses, bundle: nil), forCellReuseIdentifier: K.Cell.courses)
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -85,8 +86,13 @@ class TraineeViewController: UITableViewController {
                 
         switch indexPath.row {
         case 0:
-            let headerCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.header, for: indexPath)
-            return headerCell
+//            let headerCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.header, for: indexPath)
+//            return headerCell
+            let coursesCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.courses, for: indexPath) as! CoursesCell
+            for index in 0...2 {
+                coursesCell.courseButtons[index].setTitle(Model.courses[index], for: .normal)
+            }
+            return coursesCell
         case 1:
             let buttonsArrayCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.buttonsArray, for: indexPath)
             return buttonsArrayCell

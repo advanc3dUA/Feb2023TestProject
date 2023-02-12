@@ -10,6 +10,11 @@ import UIKit
 @IBDesignable
 class ActionButton: UIButton {
     
+    override var intrinsicContentSize: CGSize {
+        let width = (titleLabel?.text?.count ?? 0) * 7 + 50
+        return CGSize(width: width, height: 50)
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()

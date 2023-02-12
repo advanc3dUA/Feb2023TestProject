@@ -19,6 +19,8 @@
 		BF8A28992997B2CA00EEC398 /* DescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8A28972997B2CA00EEC398 /* DescriptionCell.swift */; };
 		BF8A289A2997B2CA00EEC398 /* DescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF8A28982997B2CA00EEC398 /* DescriptionCell.xib */; };
 		BF8A289C2997B6C900EEC398 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8A289B2997B6C900EEC398 /* ActionButton.swift */; };
+		BF8C58CD2998E544002580FE /* CoursesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8C58CB2998E544002580FE /* CoursesCell.swift */; };
+		BF8C58CE2998E544002580FE /* CoursesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF8C58CC2998E544002580FE /* CoursesCell.xib */; };
 		BF9DB660299578E400D5F7C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9DB65F299578E400D5F7C2 /* AppDelegate.swift */; };
 		BF9DB662299578E400D5F7C2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9DB661299578E400D5F7C2 /* SceneDelegate.swift */; };
 		BF9DB664299578E400D5F7C2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9DB663299578E400D5F7C2 /* ViewController.swift */; };
@@ -41,6 +43,8 @@
 		BF8A28972997B2CA00EEC398 /* DescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionCell.swift; sourceTree = "<group>"; };
 		BF8A28982997B2CA00EEC398 /* DescriptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DescriptionCell.xib; sourceTree = "<group>"; };
 		BF8A289B2997B6C900EEC398 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
+		BF8C58CB2998E544002580FE /* CoursesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesCell.swift; sourceTree = "<group>"; };
+		BF8C58CC2998E544002580FE /* CoursesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoursesCell.xib; sourceTree = "<group>"; };
 		BF9DB65C299578E400D5F7C2 /* Feb2023Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Feb2023Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF9DB65F299578E400D5F7C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF9DB661299578E400D5F7C2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +106,8 @@
 				BF7D40382997E4E500F83B7D /* ButtonsArrayCell.xib */,
 				BF7D403B2997F01900F83B7D /* ButtonCell.swift */,
 				BF7D403C2997F01900F83B7D /* ButtonCell.xib */,
+				BF8C58CB2998E544002580FE /* CoursesCell.swift */,
+				BF8C58CC2998E544002580FE /* CoursesCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -200,6 +206,7 @@
 				BF7D403A2997E4E500F83B7D /* ButtonsArrayCell.xib in Resources */,
 				BF8A289A2997B2CA00EEC398 /* DescriptionCell.xib in Resources */,
 				BF9DB66C299578E500D5F7C2 /* LaunchScreen.storyboard in Resources */,
+				BF8C58CE2998E544002580FE /* CoursesCell.xib in Resources */,
 				BF7D403E2997F01900F83B7D /* ButtonCell.xib in Resources */,
 				BF9DB669299578E500D5F7C2 /* Assets.xcassets in Resources */,
 				BF9DB667299578E400D5F7C2 /* Main.storyboard in Resources */,
@@ -214,6 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF9DB664299578E400D5F7C2 /* ViewController.swift in Sources */,
+				BF8C58CD2998E544002580FE /* CoursesCell.swift in Sources */,
 				BF7D403D2997F01900F83B7D /* ButtonCell.swift in Sources */,
 				BF9DB6742995791700D5F7C2 /* TraineeViewController.swift in Sources */,
 				BF7D40432998191200F83B7D /* Model.swift in Sources */,

@@ -18,5 +18,6 @@ struct K {
         static let header = "HeaderCell"
         static let description = "DescriptionCell"
         static let buttonsArray = "ButtonsArrayCell"
+        static let courses = "CoursesCell"
     }
 }
