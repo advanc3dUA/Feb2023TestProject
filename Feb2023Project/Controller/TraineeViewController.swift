@@ -65,7 +65,6 @@ class TraineeViewController: UITableViewController {
         tableView.allowsSelection = false
         tableView.separatorStyle = .none
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         tableView.register(UINib(nibName: K.Cell.header, bundle: nil), forCellReuseIdentifier: K.Cell.header)
         tableView.register(UINib(nibName: K.Cell.description, bundle: nil), forCellReuseIdentifier: K.Cell.description)
         tableView.register(UINib(nibName: K.Cell.buttonsArray, bundle: nil), forCellReuseIdentifier: K.Cell.buttonsArray)
@@ -88,7 +87,7 @@ class TraineeViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // I am not proud of this switch-case oriented programming. No to time for viewModels implemetnation :(
+        // I am not proud of this switch-case oriented programming. But there is no time for viewModels implemetnation :(
         switch numberOfRows {
         case 4:
             switch indexPath.row {
