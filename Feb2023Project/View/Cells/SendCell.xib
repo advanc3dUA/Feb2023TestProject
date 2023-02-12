@@ -23,9 +23,10 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DEx-fx-XG2" customClass="SendButton" customModule="Feb2023Project" customModuleProvider="target">
-                        <rect key="frame" x="100" y="0.0" width="200" height="44"/>
+                        <rect key="frame" x="100" y="-3" width="200" height="50"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="200" id="aSS-b9-bRn"/>
+                            <constraint firstAttribute="height" constant="50" id="s5c-5L-sbU"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -35,8 +36,7 @@
                 <constraints>
                     <constraint firstItem="UIh-K2-6AG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="A1O-rL-Q4t"/>
                     <constraint firstAttribute="trailing" secondItem="DEx-fx-XG2" secondAttribute="trailing" constant="20" id="Jt6-eU-7NM"/>
-                    <constraint firstItem="DEx-fx-XG2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Nrg-Xf-Ixz"/>
-                    <constraint firstAttribute="bottom" secondItem="DEx-fx-XG2" secondAttribute="bottom" id="h98-xc-DSi"/>
+                    <constraint firstItem="DEx-fx-XG2" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="iny-zD-QeX"/>
                     <constraint firstItem="UIh-K2-6AG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="sDm-qg-8vJ"/>
                     <constraint firstAttribute="bottom" secondItem="UIh-K2-6AG" secondAttribute="bottom" id="xkd-PY-LuP"/>
                 </constraints>

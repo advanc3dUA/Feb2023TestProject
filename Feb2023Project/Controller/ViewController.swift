@@ -29,7 +29,7 @@ class ViewController: UIViewController {
     }
     
     private func calcTraineeVCDetentSizeSmall() -> CGFloat {
-        self.view.bounds.height * 0.23
+        self.view.bounds.height * 0.33
     }
     
     private func calcTraineeVCDetentSizeLarge() -> CGFloat {

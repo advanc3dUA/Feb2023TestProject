@@ -17,7 +17,7 @@ class TraineeViewController: UITableViewController {
     }
     
     init(smallDetentSize: CGFloat, largeDetentSize: CGFloat) {
-        self.numberOfRows = 3
+        self.numberOfRows = 4
         super.init(style: .plain)
         
         // Adds two custom Detents - small and large
@@ -36,7 +36,7 @@ class TraineeViewController: UITableViewController {
         sheetPresentationController?.prefersScrollingExpandsWhenScrolledToEdge = true
         sheetPresentationController?.prefersEdgeAttachedInCompactHeight = true
         sheetPresentationController?.widthFollowsPreferredContentSizeWhenEdgeAttached = true
-        sheetPresentationController?.prefersGrabberVisible = true
+        sheetPresentationController?.prefersGrabberVisible = false
         sheetPresentationController?.preferredCornerRadius = 27
 
         // Disables hiding TraineeVC
@@ -52,6 +52,7 @@ class TraineeViewController: UITableViewController {
         super.viewDidLoad()
         
         self.view.backgroundColor = .white
+        tableView.allowsSelection = false
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         tableView.register(UINib(nibName: K.Cell.header, bundle: nil), forCellReuseIdentifier: K.Cell.header)
@@ -87,20 +88,20 @@ class TraineeViewController: UITableViewController {
                 
         switch indexPath.row {
         case 0:
-//            let headerCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.header, for: indexPath)
-//            return headerCell
-            let coursesCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.courses, for: indexPath) as! CoursesCell
-            for index in 0...2 {
-                coursesCell.courseButtons[index].setTitle(Model.courses[index], for: .normal)
-            }
-            return coursesCell
+            let headerCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.header, for: indexPath)
+            return headerCell
+//            let coursesCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.courses, for: indexPath) as! CoursesCell
+//            for index in 0...2 {
+//                coursesCell.courseButtons[index].setTitle(Model.courses[index], for: .normal)
+//            }
+//            return coursesCell
         case 1:
+            let descriptionCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.description, for: indexPath) as! DescriptionCell
+            descriptionCell.descriptionLabel.text = Model.description
+            return descriptionCell
+        case 2:
             let buttonsArrayCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.buttonsArray, for: indexPath)
             return buttonsArrayCell
-        case 2:
-            let descriptionCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.description, for: indexPath) as! DescriptionCell
-            descriptionCell.descriptionLabel.text = Model.description2
-            return descriptionCell
         default:
 //            let descriptionCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.description, for: indexPath) as! DescriptionCell
 //            descriptionCell.descriptionLabel.text = Model.description
@@ -112,12 +113,13 @@ class TraineeViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 1 {
-            return 75
-        } else {
-            return 50
+        switch indexPath.row {
+            case 0, 2: return 65
+            case 3: return 75
+            default: return 50
         }
     }
+    
 
     /*
     // Override to support conditional editing of the table view.
