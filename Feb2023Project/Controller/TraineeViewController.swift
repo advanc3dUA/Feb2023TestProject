@@ -16,20 +16,26 @@ class TraineeViewController: UITableViewController {
         }
     }
     
-    init(smallDetentSize: CGFloat, largeDetentSize: CGFloat) {
+    init(smallDetentSize: CGFloat, mediumDetentSize: CGFloat, largeDetentSize: CGFloat) {
         self.numberOfRows = 4
         super.init(style: .plain)
         
-        // Adds two custom Detents - small and large
+        // Adds custom detents
         let smallId = UISheetPresentationController.Detent.Identifier("small")
         let smallDetent = UISheetPresentationController.Detent.custom(identifier: smallId) {context in
             return smallDetentSize
         }
+        
+        let mediumId = UISheetPresentationController.Detent.Identifier("medium")
+        let mediumDetent = UISheetPresentationController.Detent.custom(identifier: mediumId) {context in
+            return mediumDetentSize
+        }
+        
         let bigId = UISheetPresentationController.Detent.Identifier("large")
         let bigDetent = UISheetPresentationController.Detent.custom(identifier: bigId) {context in
             return largeDetentSize
         }
-        sheetPresentationController?.detents = [smallDetent, .medium(), bigDetent]
+        sheetPresentationController?.detents = [smallDetent, mediumDetent, bigDetent]
 
         //Sheet setup
         sheetPresentationController?.largestUndimmedDetentIdentifier = .large

@@ -10,7 +10,7 @@ import Foundation
 struct K {
     struct Detent {
         static let large = "large"
-        static let medium = "com.apple.UIKit.medium"
+        static let medium = "medium"
         static let small = "small"
     }
     

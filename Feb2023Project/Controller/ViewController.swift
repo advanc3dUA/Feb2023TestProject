@@ -22,6 +22,7 @@ class ViewController: UIViewController {
 
     private func showTraineeVCInACustomizedSheet() {
         traineeVC = TraineeViewController(smallDetentSize: calcTraineeVCDetentSizeSmall(),
+                                          mediumDetentSize: calcTraineeVCDetentSizeMedium(),
                                           largeDetentSize: calcTraineeVCDetentSizeLarge())
         traineeVC?.delegate = self
         traineeVC?.presentationController?.delegate = self
@@ -30,6 +31,10 @@ class ViewController: UIViewController {
     
     private func calcTraineeVCDetentSizeSmall() -> CGFloat {
         self.view.bounds.height * 0.33
+    }
+    
+    private func calcTraineeVCDetentSizeMedium() -> CGFloat {
+        self.view.bounds.height * 0.55
     }
     
     private func calcTraineeVCDetentSizeLarge() -> CGFloat {
