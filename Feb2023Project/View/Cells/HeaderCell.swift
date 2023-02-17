@@ -10,4 +10,12 @@ import UIKit
 class HeaderCell: UITableViewCell {
 
     @IBOutlet weak var headerCell: UILabel!
+    
+    class var identifier: String {
+        String(describing: self)
+    }
+    
+    class var nib: UINib {
+        UINib(nibName: identifier, bundle: nil)
+    }
 }

@@ -10,4 +10,12 @@ import UIKit
 class DescriptionCell: UITableViewCell {
 
     @IBOutlet weak var descriptionLabel: UILabel!
+    
+    class var identifier: String {
+        String(describing: self)
+    }
+    
+    class var nib: UINib {
+        UINib(nibName: identifier, bundle: nil)
+    }
 }

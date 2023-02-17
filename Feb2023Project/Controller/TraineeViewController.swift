@@ -65,11 +65,11 @@ class TraineeViewController: UITableViewController {
         tableView.allowsSelection = false
         tableView.separatorStyle = .none
         
-        tableView.register(UINib(nibName: K.Cell.header, bundle: nil), forCellReuseIdentifier: K.Cell.header)
-        tableView.register(UINib(nibName: K.Cell.description, bundle: nil), forCellReuseIdentifier: K.Cell.description)
-        tableView.register(UINib(nibName: K.Cell.buttonsArray, bundle: nil), forCellReuseIdentifier: K.Cell.buttonsArray)
-        tableView.register(UINib(nibName: K.Cell.courses, bundle: nil), forCellReuseIdentifier: K.Cell.courses)
-        tableView.register(UINib(nibName: K.Cell.send, bundle: nil), forCellReuseIdentifier: K.Cell.send)
+        tableView.register(HeaderCell.nib, forCellReuseIdentifier: HeaderCell.identifier)
+        tableView.register(DescriptionCell.nib, forCellReuseIdentifier: DescriptionCell.identifier)
+        tableView.register(ButtonsArrayCell.nib, forCellReuseIdentifier: ButtonsArrayCell.identifier)
+        tableView.register(CoursesCell.nib, forCellReuseIdentifier: CoursesCell.identifier)
+        tableView.register(SendCell.nib, forCellReuseIdentifier: SendCell.identifier)
     }
     
     private func detentChanged(_ detent: UISheetPresentationController.Detent.Identifier) {
@@ -87,46 +87,45 @@ class TraineeViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // I am not proud of this switch-case oriented programming. But there is no time for viewModels implemetnation :(
         switch numberOfRows {
         case 4:
             switch indexPath.row {
                 case 0:
-                    let headerCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.header, for: indexPath) as! HeaderCell
+                let headerCell = tableView.dequeueReusableCell(withIdentifier: HeaderCell.identifier, for: indexPath) as! HeaderCell
                     configureHeaderCell(headerCell, with: headerCellViewModel)
                     return headerCell
                 
                 case 1:
-                    let descriptionCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.description, for: indexPath) as! DescriptionCell
+                let descriptionCell = tableView.dequeueReusableCell(withIdentifier: DescriptionCell.identifier, for: indexPath) as! DescriptionCell
                     configureDescriptionCell(descriptionCell, with: descriptionCellViewModel)
                     return descriptionCell
                 case 2:
-                    let buttonsArrayCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.buttonsArray, for: indexPath)
+                    let buttonsArrayCell = tableView.dequeueReusableCell(withIdentifier: ButtonsArrayCell.identifier, for: indexPath)
                     return buttonsArrayCell
                 default:
-                    let sendCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.send, for: indexPath) as! SendCell
+                    let sendCell = tableView.dequeueReusableCell(withIdentifier: SendCell.identifier, for: indexPath) as! SendCell
                 sendCell.sendButton.addTarget(self, action: #selector(presentSentAlertController), for: .touchUpInside)
                     return sendCell
             }
         case 7:
             switch indexPath.row {
             case 0:
-                let headerCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.header, for: indexPath) as! HeaderCell
+                let headerCell = tableView.dequeueReusableCell(withIdentifier: HeaderCell.identifier, for: indexPath) as! HeaderCell
                 configureHeaderCell(headerCell, with: headerCellViewModel)
                 return headerCell
             case 1:
-                let descriptionCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.description, for: indexPath) as! DescriptionCell
+                let descriptionCell = tableView.dequeueReusableCell(withIdentifier: DescriptionCell.identifier, for: indexPath) as! DescriptionCell
                 configureDescriptionCell(descriptionCell, with: descriptionCellViewModel)
                 return descriptionCell
             case 2:
-                let buttonsArrayCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.buttonsArray, for: indexPath)
+                let buttonsArrayCell = tableView.dequeueReusableCell(withIdentifier: ButtonsArrayCell.identifier, for: indexPath)
                 return buttonsArrayCell
             case 3:
-                let descriptionCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.description, for: indexPath) as! DescriptionCell
+                let descriptionCell = tableView.dequeueReusableCell(withIdentifier: DescriptionCell.identifier, for: indexPath) as! DescriptionCell
                 descriptionCell.descriptionLabel.text = Model.description2
                 return descriptionCell
             case 4:
-                let coursesCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.courses, for: indexPath) as! CoursesCell
+                let coursesCell = tableView.dequeueReusableCell(withIdentifier: CoursesCell.identifier, for: indexPath) as! CoursesCell
                 for index in 0...2 {
                     coursesCell.courseButtons[index].setTitle(Model.middleActionButtons[index].title, for: .normal)
                     coursesCell.courseButtons[index].isSelected = Model.middleActionButtons[index].state
@@ -135,7 +134,7 @@ class TraineeViewController: UITableViewController {
                 }
                 return coursesCell
             case 5:
-                let coursesCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.courses, for: indexPath) as! CoursesCell
+                let coursesCell = tableView.dequeueReusableCell(withIdentifier: CoursesCell.identifier, for: indexPath) as! CoursesCell
                 for index in 0...2 {
                     coursesCell.courseButtons[index].setTitle(Model.middleActionButtons[index + 3].title, for: .normal)
                     coursesCell.courseButtons[index].isSelected = Model.middleActionButtons[index + 3].state
@@ -144,28 +143,28 @@ class TraineeViewController: UITableViewController {
                 }
                 return coursesCell
             default:
-                let sendCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.send, for: indexPath)
+                let sendCell = tableView.dequeueReusableCell(withIdentifier: SendCell.identifier, for: indexPath)
                 return sendCell
             }
         case 8:
             switch indexPath.row {
             case 0:
-                let headerCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.header, for: indexPath) as! HeaderCell
+                let headerCell = tableView.dequeueReusableCell(withIdentifier: HeaderCell.identifier, for: indexPath) as! HeaderCell
                 configureHeaderCell(headerCell, with: headerCellViewModel)
                 return headerCell
             case 1:
-                let descriptionCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.description, for: indexPath) as! DescriptionCell
+                let descriptionCell = tableView.dequeueReusableCell(withIdentifier: DescriptionCell.identifier, for: indexPath) as! DescriptionCell
                 configureDescriptionCell(descriptionCell, with: descriptionCellViewModel)
                 return descriptionCell
             case 2:
-                let buttonsArrayCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.buttonsArray, for: indexPath)
+                let buttonsArrayCell = tableView.dequeueReusableCell(withIdentifier: ButtonsArrayCell.identifier, for: indexPath)
                 return buttonsArrayCell
             case 3:
-                let descriptionCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.description, for: indexPath) as! DescriptionCell
+                let descriptionCell = tableView.dequeueReusableCell(withIdentifier: DescriptionCell.identifier, for: indexPath) as! DescriptionCell
                 descriptionCell.descriptionLabel.text = Model.description2
                 return descriptionCell
             case 4:
-                let coursesCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.courses, for: indexPath) as! CoursesCell
+                let coursesCell = tableView.dequeueReusableCell(withIdentifier: CoursesCell.identifier, for: indexPath) as! CoursesCell
                 for index in 0...2 {
                     coursesCell.courseButtons[index].setTitle(Model.middleActionButtons[index].title, for: .normal)
                     coursesCell.courseButtons[index].isSelected = Model.middleActionButtons[index].state
@@ -174,7 +173,7 @@ class TraineeViewController: UITableViewController {
                 }
                 return coursesCell
             case 5:
-                let coursesCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.courses, for: indexPath) as! CoursesCell
+                let coursesCell = tableView.dequeueReusableCell(withIdentifier: CoursesCell.identifier, for: indexPath) as! CoursesCell
                 for index in 0...2 {
                     coursesCell.courseButtons[index].setTitle(Model.middleActionButtons[index + 3].title, for: .normal)
                     coursesCell.courseButtons[index].isSelected = Model.middleActionButtons[index + 3].state
@@ -187,7 +186,7 @@ class TraineeViewController: UITableViewController {
                 emptyCell.backgroundColor = .clear
                 return emptyCell
             default:
-                let sendCell = tableView.dequeueReusableCell(withIdentifier: K.Cell.send, for: indexPath)
+                let sendCell = tableView.dequeueReusableCell(withIdentifier: SendCell.identifier, for: indexPath)
                 return sendCell
             }
         default: fatalError("Unregistered number of rows (in numberOfRowsInSection")

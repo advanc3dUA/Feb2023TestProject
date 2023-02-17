@@ -11,6 +11,14 @@ class CoursesCell: UITableViewCell {
 
     @IBOutlet var courseButtons: [ActionButton]!
     
+    class var identifier: String {
+        String(describing: self)
+    }
+    
+    class var nib: UINib {
+        UINib(nibName: identifier, bundle: nil)
+    }
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupButtons()

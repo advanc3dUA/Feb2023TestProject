@@ -20,14 +20,6 @@ struct K {
         static let small = 0.33
     }
     
-    struct Cell {
-        static let header = "HeaderCell"
-        static let description = "DescriptionCell"
-        static let buttonsArray = "ButtonsArrayCell"
-        static let courses = "CoursesCell"
-        static let send = "SendCell"
-    }
-    
     struct CLCell {
         static let button = "ButtonCell"
     }

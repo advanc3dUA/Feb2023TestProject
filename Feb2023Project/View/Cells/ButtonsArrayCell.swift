@@ -15,6 +15,14 @@ class ButtonsArrayCell: UITableViewCell {
         setupCollectionView()
     }
     
+    class var identifier: String {
+        String(describing: self)
+    }
+    
+    class var nib: UINib {
+        UINib(nibName: identifier, bundle: nil)
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupCollectionView()

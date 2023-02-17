@@ -10,4 +10,12 @@ import UIKit
 class SendCell: UITableViewCell {
 
     @IBOutlet weak var sendButton: SendButton!
+    
+    class var identifier: String {
+        String(describing: self)
+    }
+    
+    class var nib: UINib {
+        UINib(nibName: identifier, bundle: nil)
+    }
 }

@@ -11,6 +11,14 @@ class ButtonCell: UICollectionViewCell {
     
     @IBOutlet var button: ActionButton!
     
+    class var identifier: String {
+        String(describing: self)
+    }
+    
+    class var nib: UINib {
+        UINib(nibName: identifier, bundle: nil)
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         button = ActionButton()
