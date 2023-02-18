@@ -17,8 +17,9 @@ class TraineeViewController: UITableViewController {
         }
     }
     
-    let headerCellViewModel = HeaderCellViewModel()
-    let descriptionCellViewModel = DescriptionCellViewModel()
+    let headerCellModel = HeaderCellModel()
+    let descriptionCellModel = DescriptionCellModel()
+    let buttonsCellModel = ButtonsCellModel()
     
     init(smallDetentSize: CGFloat, mediumDetentSize: CGFloat, largeDetentSize: CGFloat) {
         self.numberOfRows = 4
@@ -92,12 +93,12 @@ class TraineeViewController: UITableViewController {
             switch indexPath.row {
                 case 0:
                 let headerCell = tableView.dequeueReusableCell(withIdentifier: HeaderCell.identifier, for: indexPath) as! HeaderCell
-                    configureHeaderCell(headerCell, with: headerCellViewModel)
+                    configureHeaderCell(headerCell, with: headerCellModel)
                     return headerCell
                 
                 case 1:
                 let descriptionCell = tableView.dequeueReusableCell(withIdentifier: DescriptionCell.identifier, for: indexPath) as! DescriptionCell
-                    configureDescriptionCell(descriptionCell, with: descriptionCellViewModel)
+                configureDescriptionCell(descriptionCell, with: descriptionCellModel, type: .duties)
                     return descriptionCell
                 case 2:
                     let buttonsArrayCell = tableView.dequeueReusableCell(withIdentifier: ButtonsArrayCell.identifier, for: indexPath)
@@ -111,18 +112,18 @@ class TraineeViewController: UITableViewController {
             switch indexPath.row {
             case 0:
                 let headerCell = tableView.dequeueReusableCell(withIdentifier: HeaderCell.identifier, for: indexPath) as! HeaderCell
-                configureHeaderCell(headerCell, with: headerCellViewModel)
+                configureHeaderCell(headerCell, with: headerCellModel)
                 return headerCell
             case 1:
                 let descriptionCell = tableView.dequeueReusableCell(withIdentifier: DescriptionCell.identifier, for: indexPath) as! DescriptionCell
-                configureDescriptionCell(descriptionCell, with: descriptionCellViewModel)
+                configureDescriptionCell(descriptionCell, with: descriptionCellModel, type: .duties)
                 return descriptionCell
             case 2:
                 let buttonsArrayCell = tableView.dequeueReusableCell(withIdentifier: ButtonsArrayCell.identifier, for: indexPath)
                 return buttonsArrayCell
             case 3:
                 let descriptionCell = tableView.dequeueReusableCell(withIdentifier: DescriptionCell.identifier, for: indexPath) as! DescriptionCell
-                descriptionCell.descriptionLabel.text = Model.description2
+                configureDescriptionCell(descriptionCell, with: descriptionCellModel, type: .benefits)
                 return descriptionCell
             case 4:
                 let coursesCell = tableView.dequeueReusableCell(withIdentifier: CoursesCell.identifier, for: indexPath) as! CoursesCell
@@ -150,18 +151,18 @@ class TraineeViewController: UITableViewController {
             switch indexPath.row {
             case 0:
                 let headerCell = tableView.dequeueReusableCell(withIdentifier: HeaderCell.identifier, for: indexPath) as! HeaderCell
-                configureHeaderCell(headerCell, with: headerCellViewModel)
+                configureHeaderCell(headerCell, with: headerCellModel)
                 return headerCell
             case 1:
                 let descriptionCell = tableView.dequeueReusableCell(withIdentifier: DescriptionCell.identifier, for: indexPath) as! DescriptionCell
-                configureDescriptionCell(descriptionCell, with: descriptionCellViewModel)
+                configureDescriptionCell(descriptionCell, with: descriptionCellModel, type: .duties)
                 return descriptionCell
             case 2:
                 let buttonsArrayCell = tableView.dequeueReusableCell(withIdentifier: ButtonsArrayCell.identifier, for: indexPath)
                 return buttonsArrayCell
             case 3:
                 let descriptionCell = tableView.dequeueReusableCell(withIdentifier: DescriptionCell.identifier, for: indexPath) as! DescriptionCell
-                descriptionCell.descriptionLabel.text = Model.description2
+                configureDescriptionCell(descriptionCell, with: descriptionCellModel, type: .benefits)
                 return descriptionCell
             case 4:
                 let coursesCell = tableView.dequeueReusableCell(withIdentifier: CoursesCell.identifier, for: indexPath) as! CoursesCell
@@ -230,11 +231,25 @@ class TraineeViewController: UITableViewController {
         sender.isSelected = Model.middleActionButtons[sender.tag].state
     }
     
-    private func configureHeaderCell(_ headerCell: HeaderCell, with headerCellViewModel: HeaderCellViewModel) {
-        headerCell.headerCell.text = headerCellViewModel.title
+    private func configureHeaderCell(_ headerCell: HeaderCell, with headerCellModel: HeaderCellModel) {
+        headerCell.headerCell.text = headerCellModel.title
     }
     
-    private func configureDescriptionCell(_ descriptionCell: DescriptionCell, with descriptionCellViewModel: DescriptionCellViewModel) {
-        descriptionCell.descriptionLabel.text = descriptionCellViewModel.description1
+    private func configureDescriptionCell(_ descriptionCell: DescriptionCell, with descriptionCellModel: DescriptionCellModel, type: DescriptionType) {
+        if type == .duties {
+            descriptionCell.descriptionLabel.text = descriptionCellModel.dutiesString
+        }
+        if type == .benefits {
+            descriptionCell.descriptionLabel.text = descriptionCellModel.benefitsString
+        }
+    }
+    
+    private func configureButtonsArrayCell(_ buttonsArrayCell: ButtonsArrayCell, with buttonsCellModel: ButtonsCellModel, type: ButtonsType) {
+        if type == .top {
+            
+        }
+        if type == .middle {
+            
+        }
     }
 }

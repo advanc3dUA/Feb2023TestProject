@@ -20,7 +20,6 @@ struct Model {
                         "Nine",
                         "Ten"
                         ]
-    static let description2 = "Получай стипендию, выстраивай удобный график, работай на современном железе"
     
     static var middleActionButtons: [ActionButtonModel] = {
         var array: [ActionButtonModel] = []
