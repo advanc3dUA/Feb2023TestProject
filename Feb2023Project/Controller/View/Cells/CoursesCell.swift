@@ -11,6 +11,7 @@ class CoursesCell: UITableViewCell {
 
     @IBOutlet var courseButtons: [ActionButton]!
     var delegate: MiddleButtonsCellModelProtocol?
+    var additionalIndexIfSecondRow = 0
     
     class var identifier: String {
         String(describing: self)
@@ -31,9 +32,9 @@ class CoursesCell: UITableViewCell {
     
     func setupButtons() {
         for index in 0...2 {
-            courseButtons[index].setTitle(delegate?.buttons[index].title, for: .normal)
-            courseButtons[index].isSelected = delegate?.buttons[index].state ?? false
-            courseButtons[index].tag = index
+            courseButtons[index].setTitle(delegate?.buttons[index + additionalIndexIfSecondRow].title, for: .normal)
+            courseButtons[index].isSelected = delegate?.buttons[index + additionalIndexIfSecondRow].state ?? false
+            courseButtons[index].tag = index + additionalIndexIfSecondRow
             courseButtons[index].addTarget(self, action: #selector(midButtonWasClicked(sender:)), for: .touchUpInside)
         }
     }

@@ -12,7 +12,6 @@
 		BF7D403A2997E4E500F83B7D /* ButtonsArrayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF7D40382997E4E500F83B7D /* ButtonsArrayCell.xib */; };
 		BF7D403D2997F01900F83B7D /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7D403B2997F01900F83B7D /* ButtonCell.swift */; };
 		BF7D403E2997F01900F83B7D /* ButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF7D403C2997F01900F83B7D /* ButtonCell.xib */; };
-		BF7D40432998191200F83B7D /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7D40422998191200F83B7D /* Model.swift */; };
 		BF8A28882997877C00EEC398 /* TraineeVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8A28872997877C00EEC398 /* TraineeVCDelegate.swift */; };
 		BF8A288C2997A4A200EEC398 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8A288B2997A4A200EEC398 /* Constants.swift */; };
 		BF8A28942997AEF400EEC398 /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8A28922997AEF400EEC398 /* HeaderCell.swift */; };
@@ -48,7 +47,6 @@
 		BF7D40382997E4E500F83B7D /* ButtonsArrayCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonsArrayCell.xib; sourceTree = "<group>"; };
 		BF7D403B2997F01900F83B7D /* ButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
 		BF7D403C2997F01900F83B7D /* ButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonCell.xib; sourceTree = "<group>"; };
-		BF7D40422998191200F83B7D /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		BF8A28872997877C00EEC398 /* TraineeVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraineeVCDelegate.swift; sourceTree = "<group>"; };
 		BF8A288B2997A4A200EEC398 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BF8A28922997AEF400EEC398 /* HeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
@@ -94,7 +92,6 @@
 		BF7D4041299818E700F83B7D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				BF7D40422998191200F83B7D /* Model.swift */,
 				BF57622A29992B7A00E469A6 /* ActionButtonModel.swift */,
 				BFA9C20229A0C4D100D05AC7 /* TopButtonsCellModel.swift */,
 				BF9D31C229A21FE50059A1C3 /* TopButtonsCellModelDelegate.swift */,
@@ -263,7 +260,6 @@
 				BF9D31C329A21FE50059A1C3 /* TopButtonsCellModelDelegate.swift in Sources */,
 				BF9DB6742995791700D5F7C2 /* TraineeViewController.swift in Sources */,
 				BFA9C20529A0C51800D05AC7 /* CourseListModel.swift in Sources */,
-				BF7D40432998191200F83B7D /* Model.swift in Sources */,
 				BF8A28992997B2CA00EEC398 /* DescriptionCell.swift in Sources */,
 				BF9D31C529A225830059A1C3 /* MiddleButtonsCellModelProtocol.swift in Sources */,
 				BF9DB660299578E400D5F7C2 /* AppDelegate.swift in Sources */,
