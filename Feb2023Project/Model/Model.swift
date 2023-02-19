@@ -29,13 +29,4 @@ struct Model {
         }
         return array
     }()
-    
-    static var topActionButtons: [ActionButtonModel] = {
-        var array: [ActionButtonModel] = []
-        for index in 0...9 {
-            let newButton = ActionButtonModel(title: courses[index])
-            array.append(newButton)
-        }
-        return array
-    }()
 }

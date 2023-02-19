@@ -10,6 +10,8 @@ import UIKit
 class ButtonsArrayCell: UITableViewCell {
     
     @IBOutlet var collectionView: UICollectionView!
+    var delegate: TopButtonsCellModelDelegate?
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupCollectionView()
@@ -55,27 +57,31 @@ class ButtonsArrayCell: UITableViewCell {
 
 extension ButtonsArrayCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return Model.topActionButtons.count
+        return delegate?.buttons.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.CLCell.button, for: indexPath) as! ButtonCell
-        cell.button.setTitle(Model.topActionButtons[indexPath.row].title, for: .normal)
-        cell.button.isSelected = Model.topActionButtons[indexPath.row].state
+        guard let buttons = delegate?.buttons else { return cell }
+        
+        cell.button.setTitle(buttons[indexPath.row].title, for: .normal)
+        cell.button.isSelected = buttons[indexPath.row].state
         cell.button.tag = indexPath.row
         cell.button.addTarget(self, action: #selector(topButtonWasClicked(sender:)), for: .touchUpInside)
         return cell
     }
     
     @objc func topButtonWasClicked(sender: ActionButton) {
-        Model.topActionButtons[sender.tag].state = !sender.isSelected
-        sender.isSelected = Model.topActionButtons[sender.tag].state
+        delegate?.buttons[sender.tag].state = !sender.isSelected
+        if let currentState = delegate?.buttons[sender.tag].state {
+            sender.isSelected = currentState
+        }
     }
 }
 
 extension ButtonsArrayCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        guard let letters = Model.topActionButtons[indexPath.row].title?.count else { return CGSize(width: 75, height: 50) }
+        guard let letters = delegate?.buttons[indexPath.row].title?.count else { return CGSize(width: 75, height: 50) }
         let cellWidth = CGFloat(7 * letters + 50)
         return CGSize(width: cellWidth, height: 50)
     }

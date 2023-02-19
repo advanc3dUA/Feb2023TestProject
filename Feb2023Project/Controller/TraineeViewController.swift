@@ -19,7 +19,8 @@ class TraineeViewController: UITableViewController {
     
     let headerCellModel = HeaderCellModel()
     let descriptionCellModel = DescriptionCellModel()
-    let buttonsCellModel = ButtonsCellModel()
+    let topButtonsCellModel = TopButtonsCellModel()
+    let middleButtonsCellModel = MiddleButtonsCellModel()
     
     init(smallDetentSize: CGFloat, mediumDetentSize: CGFloat, largeDetentSize: CGFloat) {
         self.numberOfRows = 4
@@ -97,15 +98,15 @@ class TraineeViewController: UITableViewController {
                     return headerCell
                 
                 case 1:
-                let descriptionCell = tableView.dequeueReusableCell(withIdentifier: DescriptionCell.identifier, for: indexPath) as! DescriptionCell
-                configureDescriptionCell(descriptionCell, with: descriptionCellModel, type: .duties)
+                    let descriptionCell = tableView.dequeueReusableCell(withIdentifier: DescriptionCell.identifier, for: indexPath) as! DescriptionCell
+                    configureDescriptionCell(descriptionCell, with: descriptionCellModel, type: .duties)
                     return descriptionCell
-                case 2:
-                    let buttonsArrayCell = tableView.dequeueReusableCell(withIdentifier: ButtonsArrayCell.identifier, for: indexPath)
+                case 2: let buttonsArrayCell = tableView.dequeueReusableCell(withIdentifier: ButtonsArrayCell.identifier, for: indexPath) as! ButtonsArrayCell
+                    configureButtonsArrayCell(buttonsArrayCell, with: topButtonsCellModel)
                     return buttonsArrayCell
                 default:
                     let sendCell = tableView.dequeueReusableCell(withIdentifier: SendCell.identifier, for: indexPath) as! SendCell
-                sendCell.sendButton.addTarget(self, action: #selector(presentSentAlertController), for: .touchUpInside)
+                    sendCell.sendButton.addTarget(self, action: #selector(presentSentAlertController), for: .touchUpInside)
                     return sendCell
             }
         case 7:
@@ -118,8 +119,8 @@ class TraineeViewController: UITableViewController {
                 let descriptionCell = tableView.dequeueReusableCell(withIdentifier: DescriptionCell.identifier, for: indexPath) as! DescriptionCell
                 configureDescriptionCell(descriptionCell, with: descriptionCellModel, type: .duties)
                 return descriptionCell
-            case 2:
-                let buttonsArrayCell = tableView.dequeueReusableCell(withIdentifier: ButtonsArrayCell.identifier, for: indexPath)
+            case 2: let buttonsArrayCell = tableView.dequeueReusableCell(withIdentifier: ButtonsArrayCell.identifier, for: indexPath) as! ButtonsArrayCell
+                configureButtonsArrayCell(buttonsArrayCell, with: topButtonsCellModel)
                 return buttonsArrayCell
             case 3:
                 let descriptionCell = tableView.dequeueReusableCell(withIdentifier: DescriptionCell.identifier, for: indexPath) as! DescriptionCell
@@ -157,8 +158,8 @@ class TraineeViewController: UITableViewController {
                 let descriptionCell = tableView.dequeueReusableCell(withIdentifier: DescriptionCell.identifier, for: indexPath) as! DescriptionCell
                 configureDescriptionCell(descriptionCell, with: descriptionCellModel, type: .duties)
                 return descriptionCell
-            case 2:
-                let buttonsArrayCell = tableView.dequeueReusableCell(withIdentifier: ButtonsArrayCell.identifier, for: indexPath)
+            case 2: let buttonsArrayCell = tableView.dequeueReusableCell(withIdentifier: ButtonsArrayCell.identifier, for: indexPath) as! ButtonsArrayCell
+                configureButtonsArrayCell(buttonsArrayCell, with: topButtonsCellModel)
                 return buttonsArrayCell
             case 3:
                 let descriptionCell = tableView.dequeueReusableCell(withIdentifier: DescriptionCell.identifier, for: indexPath) as! DescriptionCell
@@ -244,12 +245,11 @@ class TraineeViewController: UITableViewController {
         }
     }
     
-    private func configureButtonsArrayCell(_ buttonsArrayCell: ButtonsArrayCell, with buttonsCellModel: ButtonsCellModel, type: ButtonsType) {
-        if type == .top {
-            
-        }
-        if type == .middle {
-            
-        }
+    private func configureButtonsArrayCell(_ buttonsArrayCell: ButtonsArrayCell, with topButtonsCellModel: TopButtonsCellModel) {
+        buttonsArrayCell.delegate = topButtonsCellModel
+    }
+    
+    private func configureCourseCell(_ courseCell: CoursesCell, with middleButtonsCellModel: MiddleButtonsCellModel) {
+        
     }
 }
