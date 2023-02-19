@@ -10,6 +10,7 @@ import UIKit
 class CoursesCell: UITableViewCell {
 
     @IBOutlet var courseButtons: [ActionButton]!
+    var delegate: MiddleButtonsCellModelProtocol?
     
     class var identifier: String {
         String(describing: self)
@@ -21,15 +22,24 @@ class CoursesCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setupButtons()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        setupButtons()
+        courseButtons = [ActionButton]()
     }
     
-    private func setupButtons() {
-        courseButtons = Array(repeating: ActionButton(), count: 3)
+    func setupButtons() {
+        for index in 0...2 {
+            courseButtons[index].setTitle(delegate?.buttons[index].title, for: .normal)
+            courseButtons[index].isSelected = delegate?.buttons[index].state ?? false
+            courseButtons[index].tag = index
+            courseButtons[index].addTarget(self, action: #selector(midButtonWasClicked(sender:)), for: .touchUpInside)
+        }
+    }
+    
+    @objc private func midButtonWasClicked(sender: ActionButton) {
+        delegate?.buttons[sender.tag].state = !sender.isSelected
+        sender.isSelected = delegate?.buttons[sender.tag].state ?? false
     }
 }

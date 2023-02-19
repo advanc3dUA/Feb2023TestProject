@@ -128,12 +128,16 @@ class TraineeViewController: UITableViewController {
                 return descriptionCell
             case 4:
                 let coursesCell = tableView.dequeueReusableCell(withIdentifier: CoursesCell.identifier, for: indexPath) as! CoursesCell
-                for index in 0...2 {
-                    coursesCell.courseButtons[index].setTitle(Model.middleActionButtons[index].title, for: .normal)
-                    coursesCell.courseButtons[index].isSelected = Model.middleActionButtons[index].state
-                    coursesCell.courseButtons[index].tag = index
-                    coursesCell.courseButtons[index].addTarget(self, action: #selector(midButtonWasClicked(sender:)), for: .touchUpInside)
-                }
+                print("creation of courseCell over")
+//                for index in 0...2 {
+//                    coursesCell.courseButtons[index].setTitle(Model.middleActionButtons[index].title, for: .normal)
+//                    coursesCell.courseButtons[index].isSelected = Model.middleActionButtons[index].state
+//                    coursesCell.courseButtons[index].tag = index
+//                    coursesCell.courseButtons[index].addTarget(self, action: #selector(midButtonWasClicked(sender:)), for: .touchUpInside)
+//                }
+                print("executing configCourseCell method...")
+                configureCourseCell(coursesCell, with: middleButtonsCellModel)
+                print("ready to return courseCell")
                 return coursesCell
             case 5:
                 let coursesCell = tableView.dequeueReusableCell(withIdentifier: CoursesCell.identifier, for: indexPath) as! CoursesCell
@@ -167,12 +171,13 @@ class TraineeViewController: UITableViewController {
                 return descriptionCell
             case 4:
                 let coursesCell = tableView.dequeueReusableCell(withIdentifier: CoursesCell.identifier, for: indexPath) as! CoursesCell
-                for index in 0...2 {
-                    coursesCell.courseButtons[index].setTitle(Model.middleActionButtons[index].title, for: .normal)
-                    coursesCell.courseButtons[index].isSelected = Model.middleActionButtons[index].state
-                    coursesCell.courseButtons[index].tag = index
-                    coursesCell.courseButtons[index].addTarget(self, action: #selector(midButtonWasClicked(sender:)), for: .touchUpInside)
-                }
+//                for index in 0...2 {
+//                    coursesCell.courseButtons[index].setTitle(Model.middleActionButtons[index].title, for: .normal)
+//                    coursesCell.courseButtons[index].isSelected = Model.middleActionButtons[index].state
+//                    coursesCell.courseButtons[index].tag = index
+//                    coursesCell.courseButtons[index].addTarget(self, action: #selector(midButtonWasClicked(sender:)), for: .touchUpInside)
+//                }
+                configureCourseCell(coursesCell, with: middleButtonsCellModel)
                 return coursesCell
             case 5:
                 let coursesCell = tableView.dequeueReusableCell(withIdentifier: CoursesCell.identifier, for: indexPath) as! CoursesCell
@@ -250,6 +255,7 @@ class TraineeViewController: UITableViewController {
     }
     
     private func configureCourseCell(_ courseCell: CoursesCell, with middleButtonsCellModel: MiddleButtonsCellModel) {
-        
+        courseCell.delegate = middleButtonsCellModel
+        courseCell.setupButtons()
     }
 }
