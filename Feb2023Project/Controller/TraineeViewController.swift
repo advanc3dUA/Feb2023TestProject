@@ -43,7 +43,7 @@ class TraineeViewController: UITableViewController {
             return largeDetentSize
         }
         sheetPresentationController?.detents = [smallDetent, mediumDetent, bigDetent]
-
+        
         //Sheet setup
         sheetPresentationController?.largestUndimmedDetentIdentifier = .large
         sheetPresentationController?.prefersScrollingExpandsWhenScrolledToEdge = true
@@ -51,15 +51,15 @@ class TraineeViewController: UITableViewController {
         sheetPresentationController?.widthFollowsPreferredContentSizeWhenEdgeAttached = true
         sheetPresentationController?.prefersGrabberVisible = false
         sheetPresentationController?.preferredCornerRadius = 27
-
+        
         // Disables hiding TraineeVC
         isModalInPresentation = true
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,105 +78,176 @@ class TraineeViewController: UITableViewController {
     private func detentChanged(_ detent: UISheetPresentationController.Detent.Identifier) {
         delegate?.detentChanged(detent: detent)
     }
-
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return numberOfRows
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+ 
+        if (0...2).contains(indexPath.row) {
+            return setupRowsForSmallScreen(for: indexPath)
+        }
+        
         switch numberOfRows {
         case 4:
-            switch indexPath.row {
-                case 0:
-                let headerCell = tableView.dequeueReusableCell(withIdentifier: HeaderCell.identifier, for: indexPath) as! HeaderCell
-                    configureHeaderCell(headerCell, with: headerCellModel)
-                    return headerCell
-                
-                case 1:
-                    let descriptionCell = tableView.dequeueReusableCell(withIdentifier: DescriptionCell.identifier, for: indexPath) as! DescriptionCell
-                    configureDescriptionCell(descriptionCell, with: descriptionCellModel, type: .duties)
-                    return descriptionCell
-                case 2: let buttonsArrayCell = tableView.dequeueReusableCell(withIdentifier: ButtonsArrayCell.identifier, for: indexPath) as! ButtonsArrayCell
-                    configureButtonsArrayCell(buttonsArrayCell, with: topButtonsCellModel)
-                    return buttonsArrayCell
-                default:
-                    let sendCell = tableView.dequeueReusableCell(withIdentifier: SendCell.identifier, for: indexPath) as! SendCell
-                    configureSendCell(sendCell, sendCellModel: sendCellModel)
-                    return sendCell
+            if indexPath.row == 3 {
+                let sendCell = tableView.dequeueReusableCell(withIdentifier: SendCell.identifier, for: indexPath) as! SendCell
+                configureSendCell(sendCell, sendCellModel: sendCellModel)
+                return sendCell
             }
         case 7:
-            switch indexPath.row {
-            case 0:
-                let headerCell = tableView.dequeueReusableCell(withIdentifier: HeaderCell.identifier, for: indexPath) as! HeaderCell
-                configureHeaderCell(headerCell, with: headerCellModel)
-                return headerCell
-            case 1:
-                let descriptionCell = tableView.dequeueReusableCell(withIdentifier: DescriptionCell.identifier, for: indexPath) as! DescriptionCell
-                configureDescriptionCell(descriptionCell, with: descriptionCellModel, type: .duties)
-                return descriptionCell
-            case 2: let buttonsArrayCell = tableView.dequeueReusableCell(withIdentifier: ButtonsArrayCell.identifier, for: indexPath) as! ButtonsArrayCell
-                configureButtonsArrayCell(buttonsArrayCell, with: topButtonsCellModel)
-                return buttonsArrayCell
-            case 3:
-                let descriptionCell = tableView.dequeueReusableCell(withIdentifier: DescriptionCell.identifier, for: indexPath) as! DescriptionCell
-                configureDescriptionCell(descriptionCell, with: descriptionCellModel, type: .benefits)
-                return descriptionCell
-            case 4:
-                let coursesCell = tableView.dequeueReusableCell(withIdentifier: CoursesCell.identifier, for: indexPath) as! CoursesCell
-                configureCourseCell(coursesCell, with: middleButtonsCellModel, for: indexPath)
-                return coursesCell
-            case 5:
-                let coursesCell = tableView.dequeueReusableCell(withIdentifier: CoursesCell.identifier, for: indexPath) as! CoursesCell
-                configureCourseCell(coursesCell, with: middleButtonsCellModel, for: indexPath)
-                return coursesCell
-            default:
+            if (3...5).contains(indexPath.row) {
+                return setupRowsForMedScreen(for: indexPath)
+            }
+            if indexPath.row == 6 {
                 let sendCell = tableView.dequeueReusableCell(withIdentifier: SendCell.identifier, for: indexPath) as! SendCell
                 configureSendCell(sendCell, sendCellModel: sendCellModel)
                 return sendCell
             }
         case 8:
+            if (3...5).contains(indexPath.row) {
+                return setupRowsForMedScreen(for: indexPath)
+            }
             switch indexPath.row {
-            case 0:
-                let headerCell = tableView.dequeueReusableCell(withIdentifier: HeaderCell.identifier, for: indexPath) as! HeaderCell
-                configureHeaderCell(headerCell, with: headerCellModel)
-                return headerCell
-            case 1:
-                let descriptionCell = tableView.dequeueReusableCell(withIdentifier: DescriptionCell.identifier, for: indexPath) as! DescriptionCell
-                configureDescriptionCell(descriptionCell, with: descriptionCellModel, type: .duties)
-                return descriptionCell
-            case 2: let buttonsArrayCell = tableView.dequeueReusableCell(withIdentifier: ButtonsArrayCell.identifier, for: indexPath) as! ButtonsArrayCell
-                configureButtonsArrayCell(buttonsArrayCell, with: topButtonsCellModel)
-                return buttonsArrayCell
-            case 3:
-                let descriptionCell = tableView.dequeueReusableCell(withIdentifier: DescriptionCell.identifier, for: indexPath) as! DescriptionCell
-                configureDescriptionCell(descriptionCell, with: descriptionCellModel, type: .benefits)
-                return descriptionCell
-            case 4:
-                let coursesCell = tableView.dequeueReusableCell(withIdentifier: CoursesCell.identifier, for: indexPath) as! CoursesCell
-                configureCourseCell(coursesCell, with: middleButtonsCellModel, for: indexPath)
-                return coursesCell
-            case 5:
-                let coursesCell = tableView.dequeueReusableCell(withIdentifier: CoursesCell.identifier, for: indexPath) as! CoursesCell
-                configureCourseCell(coursesCell, with: middleButtonsCellModel, for: indexPath)
-                return coursesCell
+                
             case 6:
                 let emptyCell = UITableViewCell()
                 emptyCell.backgroundColor = .clear
                 return emptyCell
-            default:
+            case 7:
                 let sendCell = tableView.dequeueReusableCell(withIdentifier: SendCell.identifier, for: indexPath) as! SendCell
                 configureSendCell(sendCell, sendCellModel: sendCellModel)
                 return sendCell
+            default: fatalError("Unregistered number of rows (in large position")
             }
+            
         default: fatalError("Unregistered number of rows (in numberOfRowsInSection")
+            
+        }
+        return UITableViewCell()
+    }
+    
+    private func setupRowsForSmallScreen(for indexPath: IndexPath) -> UITableViewCell {
+        switch indexPath.row {
+        case 0:
+            let headerCell = tableView.dequeueReusableCell(withIdentifier: HeaderCell.identifier, for: indexPath) as! HeaderCell
+            configureHeaderCell(headerCell, with: headerCellModel)
+            return headerCell
+            
+        case 1:
+            let descriptionCell = tableView.dequeueReusableCell(withIdentifier: DescriptionCell.identifier, for: indexPath) as! DescriptionCell
+            configureDescriptionCell(descriptionCell, with: descriptionCellModel, type: .duties)
+            return descriptionCell
+            
+        default:
+            let buttonsArrayCell = tableView.dequeueReusableCell(withIdentifier: ButtonsArrayCell.identifier, for: indexPath) as! ButtonsArrayCell
+            configureButtonsArrayCell(buttonsArrayCell, with: topButtonsCellModel)
+            return buttonsArrayCell
         }
     }
+    
+    private func setupRowsForMedScreen(for indexPath: IndexPath) -> UITableViewCell {
+        switch indexPath.row {
+        case 3:
+            let descriptionCell = tableView.dequeueReusableCell(withIdentifier: DescriptionCell.identifier, for: indexPath) as! DescriptionCell
+            configureDescriptionCell(descriptionCell, with: descriptionCellModel, type: .benefits)
+            return descriptionCell
+        case 4:
+            let coursesCell = tableView.dequeueReusableCell(withIdentifier: CoursesCell.identifier, for: indexPath) as! CoursesCell
+            configureCourseCell(coursesCell, with: middleButtonsCellModel, for: indexPath)
+            return coursesCell
+        default:
+            let coursesCell = tableView.dequeueReusableCell(withIdentifier: CoursesCell.identifier, for: indexPath) as! CoursesCell
+            configureCourseCell(coursesCell, with: middleButtonsCellModel, for: indexPath)
+            return coursesCell
+        }
+    }
+    
+//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//
+//        switch indexPath.row {
+//        case 0:
+//            let headerCell = tableView.dequeueReusableCell(withIdentifier: HeaderCell.identifier, for: indexPath) as! HeaderCell
+//            configureHeaderCell(headerCell, with: headerCellModel)
+//            return headerCell
+//
+//        case 1:
+//            let descriptionCell = tableView.dequeueReusableCell(withIdentifier: DescriptionCell.identifier, for: indexPath) as! DescriptionCell
+//            configureDescriptionCell(descriptionCell, with: descriptionCellModel, type: .duties)
+//            return descriptionCell
+//
+//        case 2: let buttonsArrayCell = tableView.dequeueReusableCell(withIdentifier: ButtonsArrayCell.identifier, for: indexPath) as! ButtonsArrayCell
+//            configureButtonsArrayCell(buttonsArrayCell, with: topButtonsCellModel)
+//            return buttonsArrayCell
+//
+//        default: break
+//        }
+//
+//        switch numberOfRows {
+//        case 4:
+//            if indexPath.row == 3 {
+//                let sendCell = tableView.dequeueReusableCell(withIdentifier: SendCell.identifier, for: indexPath) as! SendCell
+//                configureSendCell(sendCell, sendCellModel: sendCellModel)
+//                return sendCell
+//            }
+//        case 7:
+//            switch indexPath.row {
+//            case 3:
+//                let descriptionCell = tableView.dequeueReusableCell(withIdentifier: DescriptionCell.identifier, for: indexPath) as! DescriptionCell
+//                configureDescriptionCell(descriptionCell, with: descriptionCellModel, type: .benefits)
+//                return descriptionCell
+//            case 4:
+//                let coursesCell = tableView.dequeueReusableCell(withIdentifier: CoursesCell.identifier, for: indexPath) as! CoursesCell
+//                configureCourseCell(coursesCell, with: middleButtonsCellModel, for: indexPath)
+//                return coursesCell
+//            case 5:
+//                let coursesCell = tableView.dequeueReusableCell(withIdentifier: CoursesCell.identifier, for: indexPath) as! CoursesCell
+//                configureCourseCell(coursesCell, with: middleButtonsCellModel, for: indexPath)
+//                return coursesCell
+//            case 6:
+//                let sendCell = tableView.dequeueReusableCell(withIdentifier: SendCell.identifier, for: indexPath) as! SendCell
+//                configureSendCell(sendCell, sendCellModel: sendCellModel)
+//                return sendCell
+//            default: fatalError("Unregistered number of rows (in mid position")
+//            }
+//
+//        case 8:
+//            switch indexPath.row {
+//            case 3:
+//                let descriptionCell = tableView.dequeueReusableCell(withIdentifier: DescriptionCell.identifier, for: indexPath) as! DescriptionCell
+//                configureDescriptionCell(descriptionCell, with: descriptionCellModel, type: .benefits)
+//                return descriptionCell
+//            case 4:
+//                let coursesCell = tableView.dequeueReusableCell(withIdentifier: CoursesCell.identifier, for: indexPath) as! CoursesCell
+//                configureCourseCell(coursesCell, with: middleButtonsCellModel, for: indexPath)
+//                return coursesCell
+//            case 5:
+//                let coursesCell = tableView.dequeueReusableCell(withIdentifier: CoursesCell.identifier, for: indexPath) as! CoursesCell
+//                configureCourseCell(coursesCell, with: middleButtonsCellModel, for: indexPath)
+//                return coursesCell
+//            case 6:
+//                let emptyCell = UITableViewCell()
+//                emptyCell.backgroundColor = .clear
+//                return emptyCell
+//            case 7:
+//                let sendCell = tableView.dequeueReusableCell(withIdentifier: SendCell.identifier, for: indexPath) as! SendCell
+//                configureSendCell(sendCell, sendCellModel: sendCellModel)
+//                return sendCell
+//            default: fatalError("Unregistered number of rows (in large position")
+//            }
+//
+//        default: fatalError("Unregistered number of rows (in numberOfRowsInSection")
+//
+//        }
+//        return UITableViewCell()
+//    }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch numberOfRows {
