@@ -108,7 +108,6 @@ class TraineeViewController: UITableViewController {
                 default:
                     let sendCell = tableView.dequeueReusableCell(withIdentifier: SendCell.identifier, for: indexPath) as! SendCell
                     configureSendCell(sendCell, sendCellModel: sendCellModel)
-                    sendCell.sendButton.addTarget(self, action: #selector(presentSentAlertController), for: .touchUpInside)
                     return sendCell
             }
         case 7:
@@ -204,13 +203,6 @@ class TraineeViewController: UITableViewController {
         }
     }
     
-    @objc private func presentSentAlertController() {
-        let alert = UIAlertController(title: "Поздравляем!", message: "Ваша заявка успешно отправлена!", preferredStyle: .alert)
-        let closeButton = UIAlertAction(title: "Закрыть", style: .cancel)
-        alert.addAction(closeButton)
-        present(alert, animated: true)
-    }
-    
     //MARK: - Cells setup
     
     private func configureHeaderCell(_ headerCell: HeaderCell, with headerCellModel: HeaderCellModel) {
@@ -241,5 +233,13 @@ class TraineeViewController: UITableViewController {
     private func configureSendCell(_ sendCell: SendCell, sendCellModel: SendCellModel) {
         sendCell.delegate = sendCellModel
         sendCell.setup()
+        sendCell.sendButton.addTarget(self, action: #selector(presentSentAlertController), for: .touchUpInside)
+    }
+    
+    @objc private func presentSentAlertController() {
+        let alert = UIAlertController(title: "Поздравляем!", message: "Ваша заявка успешно отправлена!", preferredStyle: .alert)
+        let closeButton = UIAlertAction(title: "Закрыть", style: .cancel)
+        alert.addAction(closeButton)
+        present(alert, animated: true)
     }
 }
