@@ -90,8 +90,7 @@ class TraineeViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
- 
-        return setupRows(for: indexPath)
+        setupRows(for: indexPath)
     }
     
     private func setupRows(for indexPath: IndexPath) -> UITableViewCell {
@@ -146,27 +145,21 @@ class TraineeViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch numberOfRows {
-        case 4:
-            switch indexPath.row {
-                case 0, 2: return 65
-                case 3: return 75
-                default: return 50
-            }
-        case 7:
-            switch indexPath.row {
-                case 0, 2, 4, 5: return 65
-                case 6: return 75
-                default: return 50
-            }
-        case 8:
-            switch indexPath.row {
-                case 0, 2, 4, 5: return 65
-                case 6: return 250
-                case 7: return 75
-                default: return 50
-            }
-        default: fatalError("Unregistered number of rows (in heightForRowAt")
+        switch indexPath.row {
+            case 0, 2: return 65
+            case 3:
+                if numberOfRows == 4 {
+                    return 75
+                }
+                return 50
+            case 4, 5: return 65
+            case 6:
+                if numberOfRows == 7 {
+                    return 75
+                }
+                return 250
+            case 7: return 75
+            default: return 50
         }
     }
     
