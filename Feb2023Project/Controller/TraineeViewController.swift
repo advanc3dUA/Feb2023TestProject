@@ -91,19 +91,13 @@ class TraineeViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
  
-        if (0...2).contains(indexPath.row) {
+        if (0...3).contains(indexPath.row) {
             return setupRowsForSmallScreen(for: indexPath)
         }
         
         switch numberOfRows {
-        case 4:
-            if indexPath.row == 3 {
-                let sendCell = tableView.dequeueReusableCell(withIdentifier: SendCell.identifier, for: indexPath) as! SendCell
-                configureSendCell(sendCell, sendCellModel: sendCellModel)
-                return sendCell
-            }
         case 7:
-            if (3...5).contains(indexPath.row) {
+            if (4...5).contains(indexPath.row) {
                 return setupRowsForMedScreen(for: indexPath)
             }
             if indexPath.row == 6 {
@@ -112,7 +106,7 @@ class TraineeViewController: UITableViewController {
                 return sendCell
             }
         case 8:
-            if (3...5).contains(indexPath.row) {
+            if (4...5).contains(indexPath.row) {
                 return setupRowsForMedScreen(for: indexPath)
             }
             switch indexPath.row {
@@ -146,19 +140,24 @@ class TraineeViewController: UITableViewController {
             configureDescriptionCell(descriptionCell, with: descriptionCellModel, type: .duties)
             return descriptionCell
             
-        default:
+        case 2:
             let buttonsArrayCell = tableView.dequeueReusableCell(withIdentifier: ButtonsArrayCell.identifier, for: indexPath) as! ButtonsArrayCell
             configureButtonsArrayCell(buttonsArrayCell, with: topButtonsCellModel)
             return buttonsArrayCell
+        default:
+            if numberOfRows == 4 {
+                let sendCell = tableView.dequeueReusableCell(withIdentifier: SendCell.identifier, for: indexPath) as! SendCell
+                configureSendCell(sendCell, sendCellModel: sendCellModel)
+                return sendCell
+            }
+            let descriptionCell = tableView.dequeueReusableCell(withIdentifier: DescriptionCell.identifier, for: indexPath) as! DescriptionCell
+            configureDescriptionCell(descriptionCell, with: descriptionCellModel, type: .benefits)
+            return descriptionCell
         }
     }
     
     private func setupRowsForMedScreen(for indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row {
-        case 3:
-            let descriptionCell = tableView.dequeueReusableCell(withIdentifier: DescriptionCell.identifier, for: indexPath) as! DescriptionCell
-            configureDescriptionCell(descriptionCell, with: descriptionCellModel, type: .benefits)
-            return descriptionCell
         case 4:
             let coursesCell = tableView.dequeueReusableCell(withIdentifier: CoursesCell.identifier, for: indexPath) as! CoursesCell
             configureCourseCell(coursesCell, with: middleButtonsCellModel, for: indexPath)
