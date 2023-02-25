@@ -21,6 +21,7 @@ class TraineeViewController: UITableViewController {
     let descriptionCellModel = DescriptionCellModel()
     let topButtonsCellModel = TopButtonsCellModel()
     let middleButtonsCellModel = MiddleButtonsCellModel()
+    let sendCellModel = SendCellModel()
     
     init(smallDetentSize: CGFloat, mediumDetentSize: CGFloat, largeDetentSize: CGFloat) {
         self.numberOfRows = 4
@@ -106,6 +107,7 @@ class TraineeViewController: UITableViewController {
                     return buttonsArrayCell
                 default:
                     let sendCell = tableView.dequeueReusableCell(withIdentifier: SendCell.identifier, for: indexPath) as! SendCell
+                    configureSendCell(sendCell, sendCellModel: sendCellModel)
                     sendCell.sendButton.addTarget(self, action: #selector(presentSentAlertController), for: .touchUpInside)
                     return sendCell
             }
@@ -135,7 +137,8 @@ class TraineeViewController: UITableViewController {
                 configureCourseCell(coursesCell, with: middleButtonsCellModel, for: indexPath)
                 return coursesCell
             default:
-                let sendCell = tableView.dequeueReusableCell(withIdentifier: SendCell.identifier, for: indexPath)
+                let sendCell = tableView.dequeueReusableCell(withIdentifier: SendCell.identifier, for: indexPath) as! SendCell
+                configureSendCell(sendCell, sendCellModel: sendCellModel)
                 return sendCell
             }
         case 8:
@@ -168,7 +171,8 @@ class TraineeViewController: UITableViewController {
                 emptyCell.backgroundColor = .clear
                 return emptyCell
             default:
-                let sendCell = tableView.dequeueReusableCell(withIdentifier: SendCell.identifier, for: indexPath)
+                let sendCell = tableView.dequeueReusableCell(withIdentifier: SendCell.identifier, for: indexPath) as! SendCell
+                configureSendCell(sendCell, sendCellModel: sendCellModel)
                 return sendCell
             }
         default: fatalError("Unregistered number of rows (in numberOfRowsInSection")
@@ -232,5 +236,10 @@ class TraineeViewController: UITableViewController {
         if indexPath.row == 5 { courseCell.additionalIndexIfSecondRow = 3 }
 
         courseCell.setupButtons()
+    }
+    
+    private func configureSendCell(_ sendCell: SendCell, sendCellModel: SendCellModel) {
+        sendCell.delegate = sendCellModel
+        sendCell.setup()
     }
 }

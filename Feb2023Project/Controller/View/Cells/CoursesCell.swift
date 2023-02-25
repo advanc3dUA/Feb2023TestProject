@@ -10,7 +10,7 @@ import UIKit
 class CoursesCell: UITableViewCell {
 
     @IBOutlet var courseButtons: [ActionButton]!
-    var delegate: MiddleButtonsCellModelProtocol?
+    var delegate: MiddleButtonsCellModelDelegate?
     var additionalIndexIfSecondRow = 0
     
     class var identifier: String {

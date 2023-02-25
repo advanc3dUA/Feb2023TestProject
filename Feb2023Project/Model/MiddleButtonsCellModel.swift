@@ -7,7 +7,7 @@
 
 import Foundation
 
-class MiddleButtonsCellModel: MiddleButtonsCellModelProtocol {
+class MiddleButtonsCellModel: MiddleButtonsCellModelDelegate {
     var buttons: [ActionButtonModel] = {
         var array = [ActionButtonModel]()
         for i in 0...5 {

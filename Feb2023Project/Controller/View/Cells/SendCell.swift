@@ -9,7 +9,9 @@ import UIKit
 
 class SendCell: UITableViewCell {
 
+    @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var sendButton: SendButton!
+    var delegate: SendCellModelDelegate?
     
     class var identifier: String {
         String(describing: self)
@@ -17,5 +19,10 @@ class SendCell: UITableViewCell {
     
     class var nib: UINib {
         UINib(nibName: identifier, bundle: nil)
+    }
+    
+    func setup() {
+        questionLabel.text = delegate?.question
+        sendButton.setTitle(delegate?.buttonTitle, for: .normal)
     }
 }

@@ -24,9 +24,11 @@
 		BF8C58D02998F910002580FE /* SendButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8C58CF2998F910002580FE /* SendButton.swift */; };
 		BF8C58D32998F9BD002580FE /* SendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8C58D12998F9BD002580FE /* SendCell.swift */; };
 		BF8C58D42998F9BD002580FE /* SendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF8C58D22998F9BD002580FE /* SendCell.xib */; };
+		BF8DFEFA29AA087900B0E3F7 /* SendCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8DFEF929AA087900B0E3F7 /* SendCellModel.swift */; };
+		BF8DFEFC29AA08CA00B0E3F7 /* SendCellModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8DFEFB29AA08CA00B0E3F7 /* SendCellModelDelegate.swift */; };
 		BF9D31C129A21C750059A1C3 /* MiddleButtonsCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9D31C029A21C750059A1C3 /* MiddleButtonsCellModel.swift */; };
 		BF9D31C329A21FE50059A1C3 /* TopButtonsCellModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9D31C229A21FE50059A1C3 /* TopButtonsCellModelDelegate.swift */; };
-		BF9D31C529A225830059A1C3 /* MiddleButtonsCellModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9D31C429A225820059A1C3 /* MiddleButtonsCellModelProtocol.swift */; };
+		BF9D31C529A225830059A1C3 /* MiddleButtonsCellModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9D31C429A225820059A1C3 /* MiddleButtonsCellModelDelegate.swift */; };
 		BF9DB660299578E400D5F7C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9DB65F299578E400D5F7C2 /* AppDelegate.swift */; };
 		BF9DB662299578E400D5F7C2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9DB661299578E400D5F7C2 /* SceneDelegate.swift */; };
 		BF9DB664299578E400D5F7C2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9DB663299578E400D5F7C2 /* ViewController.swift */; };
@@ -59,9 +61,11 @@
 		BF8C58CF2998F910002580FE /* SendButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendButton.swift; sourceTree = "<group>"; };
 		BF8C58D12998F9BD002580FE /* SendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendCell.swift; sourceTree = "<group>"; };
 		BF8C58D22998F9BD002580FE /* SendCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SendCell.xib; sourceTree = "<group>"; };
+		BF8DFEF929AA087900B0E3F7 /* SendCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendCellModel.swift; sourceTree = "<group>"; };
+		BF8DFEFB29AA08CA00B0E3F7 /* SendCellModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendCellModelDelegate.swift; sourceTree = "<group>"; };
 		BF9D31C029A21C750059A1C3 /* MiddleButtonsCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleButtonsCellModel.swift; sourceTree = "<group>"; };
 		BF9D31C229A21FE50059A1C3 /* TopButtonsCellModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopButtonsCellModelDelegate.swift; sourceTree = "<group>"; };
-		BF9D31C429A225820059A1C3 /* MiddleButtonsCellModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleButtonsCellModelProtocol.swift; sourceTree = "<group>"; };
+		BF9D31C429A225820059A1C3 /* MiddleButtonsCellModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleButtonsCellModelDelegate.swift; sourceTree = "<group>"; };
 		BF9DB65C299578E400D5F7C2 /* Feb2023Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Feb2023Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF9DB65F299578E400D5F7C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF9DB661299578E400D5F7C2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,7 +100,9 @@
 				BFA9C20229A0C4D100D05AC7 /* TopButtonsCellModel.swift */,
 				BF9D31C229A21FE50059A1C3 /* TopButtonsCellModelDelegate.swift */,
 				BF9D31C029A21C750059A1C3 /* MiddleButtonsCellModel.swift */,
-				BF9D31C429A225820059A1C3 /* MiddleButtonsCellModelProtocol.swift */,
+				BF9D31C429A225820059A1C3 /* MiddleButtonsCellModelDelegate.swift */,
+				BF8DFEF929AA087900B0E3F7 /* SendCellModel.swift */,
+				BF8DFEFB29AA08CA00B0E3F7 /* SendCellModelDelegate.swift */,
 				BFA9C1FA29A0BDAE00D05AC7 /* HeaderCellModel.swift */,
 				BFA9C1FC29A0BE1400D05AC7 /* DescriptionCellModel.swift */,
 				BFA9C1FE29A0BED400D05AC7 /* DescriptionType.swift */,
@@ -261,8 +267,10 @@
 				BF9DB6742995791700D5F7C2 /* TraineeViewController.swift in Sources */,
 				BFA9C20529A0C51800D05AC7 /* CourseListModel.swift in Sources */,
 				BF8A28992997B2CA00EEC398 /* DescriptionCell.swift in Sources */,
-				BF9D31C529A225830059A1C3 /* MiddleButtonsCellModelProtocol.swift in Sources */,
+				BF9D31C529A225830059A1C3 /* MiddleButtonsCellModelDelegate.swift in Sources */,
 				BF9DB660299578E400D5F7C2 /* AppDelegate.swift in Sources */,
+				BF8DFEFC29AA08CA00B0E3F7 /* SendCellModelDelegate.swift in Sources */,
+				BF8DFEFA29AA087900B0E3F7 /* SendCellModel.swift in Sources */,
 				BF8C58D02998F910002580FE /* SendButton.swift in Sources */,
 				BF8A28942997AEF400EEC398 /* HeaderCell.swift in Sources */,
 				BFA9C1FD29A0BE1400D05AC7 /* DescriptionCellModel.swift in Sources */,
