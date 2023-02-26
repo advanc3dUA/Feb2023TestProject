@@ -1,5 +1,5 @@
 //
-//  ButtonsArrayCell.swift
+//  TopButtonsCell.swift
 //  Feb2023Project
 //
 //  Created by Yuriy Gudimov on 11.02.2023.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ButtonsArrayCell: UITableViewCell {
+class TopButtonsCell: UITableViewCell {
     
     @IBOutlet var collectionView: UICollectionView!
     var delegate: TopButtonsCellModelDelegate?
@@ -55,7 +55,7 @@ class ButtonsArrayCell: UITableViewCell {
     }
 }
 
-extension ButtonsArrayCell: UICollectionViewDataSource {
+extension TopButtonsCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return delegate?.buttons.count ?? 0
     }
@@ -79,7 +79,7 @@ extension ButtonsArrayCell: UICollectionViewDataSource {
     }
 }
 
-extension ButtonsArrayCell: UICollectionViewDelegateFlowLayout {
+extension TopButtonsCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let cellWidth = delegate?.buttons[indexPath.row].width ?? 75
         let cellHeight = delegate?.buttons[indexPath.row].height ?? 50

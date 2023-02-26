@@ -70,7 +70,7 @@ class TraineeViewController: UITableViewController {
         
         tableView.register(HeaderCell.nib, forCellReuseIdentifier: HeaderCell.identifier)
         tableView.register(DescriptionCell.nib, forCellReuseIdentifier: DescriptionCell.identifier)
-        tableView.register(ButtonsArrayCell.nib, forCellReuseIdentifier: ButtonsArrayCell.identifier)
+        tableView.register(TopButtonsCell.nib, forCellReuseIdentifier: TopButtonsCell.identifier)
         tableView.register(MiddleButtonsCell.nib, forCellReuseIdentifier: MiddleButtonsCell.identifier)
         tableView.register(SendCell.nib, forCellReuseIdentifier: SendCell.identifier)
     }
@@ -106,9 +106,9 @@ class TraineeViewController: UITableViewController {
             return descriptionCell
             
         case 2:
-            let buttonsArrayCell = tableView.dequeueReusableCell(withIdentifier: ButtonsArrayCell.identifier, for: indexPath) as! ButtonsArrayCell
-            configureButtonsArrayCell(buttonsArrayCell, with: topButtonsCellModel)
-            return buttonsArrayCell
+            let topButtonsCell = tableView.dequeueReusableCell(withIdentifier: TopButtonsCell.identifier, for: indexPath) as! TopButtonsCell
+            configureTopButtonsCell(topButtonsCell, with: topButtonsCellModel)
+            return topButtonsCell
         case 3:
             if numberOfRows == 4 {
                 let sendCell = tableView.dequeueReusableCell(withIdentifier: SendCell.identifier, for: indexPath) as! SendCell
@@ -178,8 +178,8 @@ class TraineeViewController: UITableViewController {
         }
     }
     
-    private func configureButtonsArrayCell(_ buttonsArrayCell: ButtonsArrayCell, with topButtonsCellModel: TopButtonsCellModel) {
-        buttonsArrayCell.delegate = topButtonsCellModel
+    private func configureTopButtonsCell(_ topButtonsCell: TopButtonsCell, with topButtonsCellModel: TopButtonsCellModel) {
+        topButtonsCell.delegate = topButtonsCellModel
     }
     
     private func configureMiddleButtonsCell(_ middleButtonsCell: MiddleButtonsCell, with middleButtonsCellModel: MiddleButtonsCellModel, for indexPath: IndexPath) {

@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		BF57622B29992B7A00E469A6 /* ActionButtonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF57622A29992B7A00E469A6 /* ActionButtonModel.swift */; };
-		BF7D40392997E4E500F83B7D /* ButtonsArrayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7D40372997E4E500F83B7D /* ButtonsArrayCell.swift */; };
-		BF7D403A2997E4E500F83B7D /* ButtonsArrayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF7D40382997E4E500F83B7D /* ButtonsArrayCell.xib */; };
+		BF7D40392997E4E500F83B7D /* TopButtonsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7D40372997E4E500F83B7D /* TopButtonsCell.swift */; };
+		BF7D403A2997E4E500F83B7D /* TopButtonsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF7D40382997E4E500F83B7D /* TopButtonsCell.xib */; };
 		BF7D403D2997F01900F83B7D /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7D403B2997F01900F83B7D /* ButtonCell.swift */; };
 		BF7D403E2997F01900F83B7D /* ButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF7D403C2997F01900F83B7D /* ButtonCell.xib */; };
 		BF8A28882997877C00EEC398 /* TraineeVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8A28872997877C00EEC398 /* TraineeVCDelegate.swift */; };
@@ -45,8 +45,8 @@
 
 /* Begin PBXFileReference section */
 		BF57622A29992B7A00E469A6 /* ActionButtonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButtonModel.swift; sourceTree = "<group>"; };
-		BF7D40372997E4E500F83B7D /* ButtonsArrayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsArrayCell.swift; sourceTree = "<group>"; };
-		BF7D40382997E4E500F83B7D /* ButtonsArrayCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonsArrayCell.xib; sourceTree = "<group>"; };
+		BF7D40372997E4E500F83B7D /* TopButtonsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopButtonsCell.swift; sourceTree = "<group>"; };
+		BF7D40382997E4E500F83B7D /* TopButtonsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopButtonsCell.xib; sourceTree = "<group>"; };
 		BF7D403B2997F01900F83B7D /* ButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
 		BF7D403C2997F01900F83B7D /* ButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonCell.xib; sourceTree = "<group>"; };
 		BF8A28872997877C00EEC398 /* TraineeVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraineeVCDelegate.swift; sourceTree = "<group>"; };
@@ -140,8 +140,8 @@
 				BF8A28932997AEF400EEC398 /* HeaderCell.xib */,
 				BF8A28972997B2CA00EEC398 /* DescriptionCell.swift */,
 				BF8A28982997B2CA00EEC398 /* DescriptionCell.xib */,
-				BF7D40372997E4E500F83B7D /* ButtonsArrayCell.swift */,
-				BF7D40382997E4E500F83B7D /* ButtonsArrayCell.xib */,
+				BF7D40372997E4E500F83B7D /* TopButtonsCell.swift */,
+				BF7D40382997E4E500F83B7D /* TopButtonsCell.xib */,
 				BF7D403B2997F01900F83B7D /* ButtonCell.swift */,
 				BF7D403C2997F01900F83B7D /* ButtonCell.xib */,
 				BF8C58CB2998E544002580FE /* MiddleButtonsCell.swift */,
@@ -242,7 +242,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF8A28952997AEF400EEC398 /* HeaderCell.xib in Resources */,
-				BF7D403A2997E4E500F83B7D /* ButtonsArrayCell.xib in Resources */,
+				BF7D403A2997E4E500F83B7D /* TopButtonsCell.xib in Resources */,
 				BF8A289A2997B2CA00EEC398 /* DescriptionCell.xib in Resources */,
 				BF8C58D42998F9BD002580FE /* SendCell.xib in Resources */,
 				BF9DB66C299578E500D5F7C2 /* LaunchScreen.storyboard in Resources */,
@@ -276,7 +276,7 @@
 				BFA9C1FD29A0BE1400D05AC7 /* DescriptionCellModel.swift in Sources */,
 				BF8C58D32998F9BD002580FE /* SendCell.swift in Sources */,
 				BF8A288C2997A4A200EEC398 /* Constants.swift in Sources */,
-				BF7D40392997E4E500F83B7D /* ButtonsArrayCell.swift in Sources */,
+				BF7D40392997E4E500F83B7D /* TopButtonsCell.swift in Sources */,
 				BF8A28882997877C00EEC398 /* TraineeVCDelegate.swift in Sources */,
 				BF57622B29992B7A00E469A6 /* ActionButtonModel.swift in Sources */,
 				BF9D31C129A21C750059A1C3 /* MiddleButtonsCellModel.swift in Sources */,
