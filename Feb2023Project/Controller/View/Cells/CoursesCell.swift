@@ -32,9 +32,17 @@ class CoursesCell: UITableViewCell {
     
     func setupButtons() {
         for index in 0...2 {
-            courseButtons[index].setTitle(delegate?.buttons[index + additionalIndexIfSecondRow].title, for: .normal)
-            courseButtons[index].isSelected = delegate?.buttons[index + additionalIndexIfSecondRow].state ?? false
-            courseButtons[index].tag = index + additionalIndexIfSecondRow
+            let fullIndex = index + additionalIndexIfSecondRow
+            
+            // Configuring size of the button from model
+            let buttonWidth = delegate?.buttons[fullIndex].width ?? 75
+            let buttonHeight = delegate?.buttons[fullIndex].height ?? 50
+            courseButtons[index].frame = CGRect(x: 0, y: 0, width: buttonWidth, height: buttonHeight)
+            
+            // Configuring other buttons settings
+            courseButtons[index].setTitle(delegate?.buttons[fullIndex].title, for: .normal)
+            courseButtons[index].isSelected = delegate?.buttons[fullIndex].state ?? false
+            courseButtons[index].tag = fullIndex
             courseButtons[index].addTarget(self, action: #selector(midButtonWasClicked(sender:)), for: .touchUpInside)
         }
     }

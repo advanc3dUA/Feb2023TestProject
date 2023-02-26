@@ -11,7 +11,10 @@ class MiddleButtonsCellModel: MiddleButtonsCellModelDelegate {
     var buttons: [ActionButtonModel] = {
         var array = [ActionButtonModel]()
         for i in 0...5 {
-            let newButton = ActionButtonModel(title: CourseListModel.courses[i])
+            let titleForButton = CourseListModel.courses[i]
+            var newButton = ActionButtonModel(title: titleForButton)
+            let lettersCount = titleForButton.count
+            newButton.width = CGFloat(7 * lettersCount + 50)
             array.append(newButton)
         }
         return array
