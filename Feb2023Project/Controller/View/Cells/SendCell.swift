@@ -22,6 +22,10 @@ class SendCell: UITableViewCell {
     }
     
     func setup() {
+        let width = delegate?.buttonWidth ?? 200
+        let height = delegate?.buttonHeight ?? 50
+        sendButton.frame = CGRect(x: 0, y: 0, width: width, height: height)
+        
         questionLabel.text = delegate?.question
         sendButton.setTitle(delegate?.buttonTitle, for: .normal)
     }

@@ -10,4 +10,6 @@ import Foundation
 protocol SendCellModelDelegate {
     var question: String { get }
     var buttonTitle: String { get }
+    var buttonHeight: CGFloat { get }
+    var buttonWidth: CGFloat { get }
 }
