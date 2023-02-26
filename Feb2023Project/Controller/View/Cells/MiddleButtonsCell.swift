@@ -1,5 +1,5 @@
 //
-//  CoursesCell.swift
+//  MiddleButtonsCell.swift
 //  Feb2023Project
 //
 //  Created by Yuriy Gudimov on 12.02.2023.
@@ -7,9 +7,9 @@
 
 import UIKit
 
-class CoursesCell: UITableViewCell {
+class MiddleButtonsCell: UITableViewCell {
 
-    @IBOutlet var courseButtons: [ActionButton]!
+    @IBOutlet var middleButtons: [ActionButton]!
     var delegate: MiddleButtonsCellModelDelegate?
     var additionalIndexIfSecondRow = 0
     
@@ -27,7 +27,7 @@ class CoursesCell: UITableViewCell {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        courseButtons = [ActionButton]()
+        middleButtons = [ActionButton]()
     }
     
     func setupButtons() {
@@ -37,13 +37,13 @@ class CoursesCell: UITableViewCell {
             // Configuring size of the button from model
             let buttonWidth = delegate?.buttons[fullIndex].width ?? 75
             let buttonHeight = delegate?.buttons[fullIndex].height ?? 50
-            courseButtons[index].frame = CGRect(x: 0, y: 0, width: buttonWidth, height: buttonHeight)
+            middleButtons[index].frame = CGRect(x: 0, y: 0, width: buttonWidth, height: buttonHeight)
             
             // Configuring other buttons settings
-            courseButtons[index].setTitle(delegate?.buttons[fullIndex].title, for: .normal)
-            courseButtons[index].isSelected = delegate?.buttons[fullIndex].state ?? false
-            courseButtons[index].tag = fullIndex
-            courseButtons[index].addTarget(self, action: #selector(midButtonWasClicked(sender:)), for: .touchUpInside)
+            middleButtons[index].setTitle(delegate?.buttons[fullIndex].title, for: .normal)
+            middleButtons[index].isSelected = delegate?.buttons[fullIndex].state ?? false
+            middleButtons[index].tag = fullIndex
+            middleButtons[index].addTarget(self, action: #selector(midButtonWasClicked(sender:)), for: .touchUpInside)
         }
     }
     

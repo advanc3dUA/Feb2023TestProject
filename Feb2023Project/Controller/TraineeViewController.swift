@@ -71,7 +71,7 @@ class TraineeViewController: UITableViewController {
         tableView.register(HeaderCell.nib, forCellReuseIdentifier: HeaderCell.identifier)
         tableView.register(DescriptionCell.nib, forCellReuseIdentifier: DescriptionCell.identifier)
         tableView.register(ButtonsArrayCell.nib, forCellReuseIdentifier: ButtonsArrayCell.identifier)
-        tableView.register(CoursesCell.nib, forCellReuseIdentifier: CoursesCell.identifier)
+        tableView.register(MiddleButtonsCell.nib, forCellReuseIdentifier: MiddleButtonsCell.identifier)
         tableView.register(SendCell.nib, forCellReuseIdentifier: SendCell.identifier)
     }
     
@@ -119,13 +119,13 @@ class TraineeViewController: UITableViewController {
             configureDescriptionCell(descriptionCell, with: descriptionCellModel, type: .benefits)
             return descriptionCell
         case 4:
-            let coursesCell = tableView.dequeueReusableCell(withIdentifier: CoursesCell.identifier, for: indexPath) as! CoursesCell
-            configureCourseCell(coursesCell, with: middleButtonsCellModel, for: indexPath)
-            return coursesCell
+            let middleButtonsCell = tableView.dequeueReusableCell(withIdentifier: MiddleButtonsCell.identifier, for: indexPath) as! MiddleButtonsCell
+            configureMiddleButtonsCell(middleButtonsCell, with: middleButtonsCellModel, for: indexPath)
+            return middleButtonsCell
         case 5:
-            let coursesCell = tableView.dequeueReusableCell(withIdentifier: CoursesCell.identifier, for: indexPath) as! CoursesCell
-            configureCourseCell(coursesCell, with: middleButtonsCellModel, for: indexPath)
-            return coursesCell
+            let middleButtonsCell = tableView.dequeueReusableCell(withIdentifier: MiddleButtonsCell.identifier, for: indexPath) as! MiddleButtonsCell
+            configureMiddleButtonsCell(middleButtonsCell, with: middleButtonsCellModel, for: indexPath)
+            return middleButtonsCell
         case 6:
             if numberOfRows == 7 {
                 let sendCell = tableView.dequeueReusableCell(withIdentifier: SendCell.identifier, for: indexPath) as! SendCell
@@ -182,12 +182,12 @@ class TraineeViewController: UITableViewController {
         buttonsArrayCell.delegate = topButtonsCellModel
     }
     
-    private func configureCourseCell(_ courseCell: CoursesCell, with middleButtonsCellModel: MiddleButtonsCellModel, for indexPath: IndexPath) {
-        courseCell.delegate = middleButtonsCellModel
-        if indexPath.row == 4 { courseCell.additionalIndexIfSecondRow = 0 }
-        if indexPath.row == 5 { courseCell.additionalIndexIfSecondRow = 3 }
+    private func configureMiddleButtonsCell(_ middleButtonsCell: MiddleButtonsCell, with middleButtonsCellModel: MiddleButtonsCellModel, for indexPath: IndexPath) {
+        middleButtonsCell.delegate = middleButtonsCellModel
+        if indexPath.row == 4 { middleButtonsCell.additionalIndexIfSecondRow = 0 }
+        if indexPath.row == 5 { middleButtonsCell.additionalIndexIfSecondRow = 3 }
 
-        courseCell.setupButtons()
+        middleButtonsCell.setupButtons()
     }
     
     private func configureSendCell(_ sendCell: SendCell, sendCellModel: SendCellModel) {
