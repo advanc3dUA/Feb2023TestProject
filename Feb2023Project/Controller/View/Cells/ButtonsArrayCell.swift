@@ -81,9 +81,9 @@ extension ButtonsArrayCell: UICollectionViewDataSource {
 
 extension ButtonsArrayCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        guard let letters = delegate?.buttons[indexPath.row].title?.count else { return CGSize(width: 75, height: 50) }
-        let cellWidth = CGFloat(7 * letters + 50)
-        return CGSize(width: cellWidth, height: 50)
+        let cellWidth = delegate?.buttons[indexPath.row].width ?? 75
+        let cellHeight = delegate?.buttons[indexPath.row].height ?? 50
+        return CGSize(width: cellWidth, height: cellHeight)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 10
