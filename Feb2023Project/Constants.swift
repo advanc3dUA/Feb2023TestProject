@@ -19,8 +19,4 @@ struct K {
         static let medium = 0.55
         static let small = 0.33
     }
-    
-    struct CLCell {
-        static let button = "ButtonCell"
-    }
 }

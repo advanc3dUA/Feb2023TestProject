@@ -39,7 +39,7 @@ class TopButtonsCell: UITableViewCell {
         
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         
-        collectionView.register(UINib(nibName: K.CLCell.button, bundle: nil), forCellWithReuseIdentifier: K.CLCell.button)
+        collectionView.register(ButtonCell.nib, forCellWithReuseIdentifier: ButtonCell.identifier)
         collectionView.backgroundColor = .white
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -61,7 +61,7 @@ extension TopButtonsCell: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.CLCell.button, for: indexPath) as! ButtonCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ButtonCell.identifier, for: indexPath) as! ButtonCell
         guard let buttons = delegate?.buttons else { return cell }
         
         cell.button.setTitle(buttons[indexPath.row].title, for: .normal)
