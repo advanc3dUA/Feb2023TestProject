@@ -15,9 +15,9 @@ struct CourseListModel {
                         "QA",
                         "Flutter",
                         "PM",
-                        "Seven",
-                        "Eight",
-                        "Nine",
-                        "Ten"
+                        "C++",
+                        "Python",
+                        "PHP",
+                        "Windows mobile"
                         ]
 }
