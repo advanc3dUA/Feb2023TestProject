@@ -17,7 +17,7 @@ struct CourseListModel {
                         "PM",
                         "C++",
                         "Python",
-                        "PHP",
-                        "Windows mobile"
+                        "Windows mobile",
+                        "PHP"
                         ]
 }
