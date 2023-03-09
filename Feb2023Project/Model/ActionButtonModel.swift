@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct ActionButtonModel {
-    let title: String?
+struct ActionButtonModel: Equatable {
+    var title = ""
     var state: Bool = false
     var width: CGFloat?
     let height: CGFloat = 50
