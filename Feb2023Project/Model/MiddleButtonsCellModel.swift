@@ -7,20 +7,6 @@
 
 import Foundation
 
-//class MiddleButtonsCellModel: MiddleButtonsCellModelDelegate {
-//    var buttons: [ActionButtonModel] = {
-//        var array = [ActionButtonModel]()
-//        for i in 0...5 {
-//            let titleForButton = CourseListModel.courses[i]
-//            var newButton = ActionButtonModel(title: titleForButton)
-//            let lettersCount = titleForButton.count
-//            newButton.width = CGFloat(7 * lettersCount + 50)
-//            array.append(newButton)
-//        }
-//        return array
-//    }()
-//}
-
 class MiddleButtonsCellModel: MiddleButtonsCellModelDelegate {
     var buttons: [ActionButtonModel] = CourseListModel.courses.prefix(6).map { title in
         var button = ActionButtonModel(title: title)
